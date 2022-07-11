@@ -6,13 +6,13 @@ export const HomePage = () => {
     return (
         <div>
             <h1>Pocket Cards</h1>
-            <Link>
+            <Link to="/BlackJack">
                 <button>Login</button>
             </Link>
-            <Link>
+            <Link to="/BlackJack">
                 <button>Guest</button>
             </Link>
-            <Link>
+            <Link to="/BlackJack">
                 <button>SignUp</button>
             </Link>
         </div>
