@@ -1,10 +1,19 @@
 import './BetButtons.scss';
+import PropTypes from 'prop-types';
 
-export const BetButtons = () => {
+export const BetButtons = (props) => {
     return (
         <div>
-            <button>Done</button>
-            <button>Cancel</button>
+            <button onClick={props.toggleBetting}>
+                Done
+            </button>
+            <button>
+                Cancel
+            </button>
         </div>
     )
+}
+
+BetButtons.propTypes = {
+    toggleBetting: PropTypes.func.isRequired
 }
