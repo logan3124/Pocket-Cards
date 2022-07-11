@@ -29,13 +29,14 @@ export const BlackJackContainer = () => {
             <div>{bet}</div>
             <h1>Pocket Cards</h1>
             <div>{funds}</div>
-            <button></button>
+            <button>Theme</button>
             {
             betting? 
             <BlackJackBet 
                 toggleBetting={toggleBetting}
                 toggleBet={toggleBet}
                 funds={funds}
+                bet={bet}
             /> : 
             <BlackJackPlay
                 toggleBetting={toggleBetting}
