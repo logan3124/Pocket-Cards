@@ -7,8 +7,16 @@
     position: absolute;
     bottom: 35rem;
     div, button {
-        color: $primary-color;
         font-weight: bold;
+    }
+    .red {
+        color: $primary-color;
+    }
+    .blue {
+        color: $primary-color2;
+    }
+    .green {
+        color: $primary-color3;
     }
     div {
         display: inline-flex;
@@ -19,7 +27,15 @@
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        background-color: $tertiary-color;
         border: 0px solid transparent;
+    }
+    .button.red {
+        background-color: $tertiary-color;
+    }
+    .button.blue {
+        background-color: $tertiary-color2;
+    }
+    .button.green {
+        background-color: $secondary-color3;
     }
 }

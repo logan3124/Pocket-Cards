@@ -19,15 +19,18 @@ export const BlackJackBet = (props) => {
     return (
         <div className='blackJackBet'>
             <BetDisplay
+                theme={props.theme}
                 betDisplay={betDisplay}
                 resetBetDisplay={resetBetDisplay} 
             />
             <BetChooser
+                theme={props.theme}
                 funds={props.funds}
                 addBetDisplay={addBetDisplay} 
             />
             <br></br>
             <BetButtons
+                theme={props.theme}
                 toggleBetting={props.toggleBetting} 
             />
         </div>
@@ -38,6 +41,7 @@ BlackJackBet.propTypes = {
     toggleBetting: PropTypes.func.isRequired,
     toggleBet: PropTypes.func.isRequired,
     funds: PropTypes.number.isRequired,
-    bet: PropTypes.number.isRequired
+    bet: PropTypes.number.isRequired,
+    theme: PropTypes.string.isRequired
 }
 

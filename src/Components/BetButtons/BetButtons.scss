@@ -12,9 +12,18 @@
         font-size: 20px;
         font-weight: bold;
         color: white;
-        background-color: $primary-color;
         border-radius: 10px;
         border: 0px solid transparent;
     }
+    .red {
+        background-color: $primary-color;
+    }
+    .blue {
+        background-color: $primary-color2;
+    }
+    .green {
+        background-color: $primary-color3;
+    }
 }
+
 

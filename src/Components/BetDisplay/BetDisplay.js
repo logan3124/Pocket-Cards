@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export const BetDisplay = (props) => {
     return (
         <div className='display'>
-            <div>{props.betDisplay}</div>
-            <button onClick={props.resetBetDisplay}>
+            <div className={props.theme}>{props.betDisplay}</div>
+            <button className={props.theme} onClick={props.resetBetDisplay}>
                 X
             </button>
         </div>
@@ -15,5 +15,6 @@ export const BetDisplay = (props) => {
 
 BetDisplay.propTypes = {
     betDisplay: PropTypes.number.isRequired,
-    resetBetDisplay: PropTypes.func.isRequired
+    resetBetDisplay: PropTypes.func.isRequired,
+    theme: PropTypes.string.isRequired
 }

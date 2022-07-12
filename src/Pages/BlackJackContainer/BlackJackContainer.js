@@ -22,19 +22,34 @@ export const BlackJackContainer = () => {
         setFunds(newFunds)
     }
 
+    const [theme, setTheme] = useState('red');
+
+    const nextTheme = () => {
+        setTheme((prev) => {
+            if (prev === 'red') {
+                return 'blue';
+            } else if (prev === 'blue') {
+                return 'green';
+            } else {
+                return 'red';
+            }
+        })
+    }
+
     return (
-        <div className='blackJack'>
+        <div className={`blackJack ${theme}`}>
             <header className='top'>
-                <div className='menu'>Menu</div>
-                <div className="bet">{bet}</div>
-                <h1>Pocket Cards</h1>
-                <div className="funds">{funds}</div>
-                <div className='theme'>Theme</div>
+                <div className={`menu ${theme}`}>Menu</div>
+                <div className={`bet ${theme}`}>{bet}</div>
+                <h1 className={theme}>Pocket Cards</h1>
+                <div className={`funds ${theme}`}>{funds}</div>
+                <div className={`theme ${theme}`} onClick={nextTheme}>Theme</div>
             </header>
             <main>
             {
             betting? 
-            <BlackJackBet 
+            <BlackJackBet
+                theme={theme}
                 toggleBetting={toggleBetting}
                 toggleBet={toggleBet}
                 funds={funds}
