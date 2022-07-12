@@ -6,19 +6,19 @@
     justify-content: center;
     position: absolute;
     bottom: 35rem;
-    div {
-        display: inline-flex;
+    div, button {
         color: $primary-color;
         font-weight: bold;
+    }
+    div {
+        display: inline-flex;
         font-size: 90px;
     }
     button {
         font-size: 20px;
-        font-weight: bold;
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
-        color: $primary-color;
         background-color: $tertiary-color;
         border: 0px solid transparent;
     }
