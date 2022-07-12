@@ -26,9 +26,9 @@ export const BlackJackContainer = () => {
     return (
         <div>
             <DropDown />
-            <div>{bet}</div>
+            <div className="bet">{bet}</div>
             <h1>Pocket Cards</h1>
-            <div>{funds}</div>
+            <div className="funds">{funds}</div>
             <button>Theme</button>
             {
             betting? 

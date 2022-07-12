@@ -1,0 +1,44 @@
+@import '../../sassStyles/variables';
+
+
+.Container {
+    width: 5rem;
+    height: 5rem;
+    background-color: $primary-color;
+    border-radius: 50%;
+    background: conic-gradient(
+        $primary-color 15deg, 
+        $secondary-color 15deg 45deg, 
+        $primary-color 45deg 75deg,
+        $secondary-color 75deg 105deg,
+        $primary-color 105deg 135deg,
+        $secondary-color 135deg 165deg,
+        $primary-color 165deg 195deg,
+        $secondary-color 195deg 225deg,
+        $primary-color 225deg 255deg,
+        $secondary-color 255deg 285deg,
+        $primary-color 285deg 315deg,
+        $secondary-color 315deg, 345deg,
+        $primary-color 345deg 
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.chip {
+    width: 4rem;
+    height: 4rem;
+    background-color: $primary-color;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
