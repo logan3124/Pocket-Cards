@@ -1,0 +1,17 @@
+@mixin chipGradient($primary, $secondary) {
+    background: conic-gradient(
+        $primary 15deg, 
+        $secondary 15deg 45deg, 
+        $primary 45deg 75deg,
+        $secondary 75deg 105deg,
+        $primary 105deg 135deg,
+        $secondary 135deg 165deg,
+        $primary 165deg 195deg,
+        $secondary 195deg 225deg,
+        $primary 225deg 255deg,
+        $secondary 255deg 285deg,
+        $primary 285deg 315deg,
+        $secondary 315deg, 345deg,
+        $primary 345deg
+    );
+  }
