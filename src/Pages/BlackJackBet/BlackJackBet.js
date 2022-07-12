@@ -31,7 +31,9 @@ export const BlackJackBet = (props) => {
             <br></br>
             <BetButtons
                 theme={props.theme}
-                toggleBetting={props.toggleBetting} 
+                toggleBetting={props.toggleBetting}
+                betDisplay={betDisplay}
+                toggleBet={props.toggleBet} 
             />
         </div>
     )
