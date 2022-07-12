@@ -2,17 +2,29 @@ import './BlackJackBet.scss';
 import { BetDisplay } from '../../Components/BetDisplay/BetDisplay';
 import { BetChooser } from '../../Components/BetChooser/BetChooser';
 import { BetButtons } from '../../Components/BetButtons/BetButtons';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export const BlackJackBet = (props) => {
+    const [betDisplay, setBetDisplay] = useState(0);
+
+    const addBetDisplay = (number) =>  {
+        setBetDisplay((prev) => prev + number);
+    }
+
+    const resetBetDisplay = () => {
+        setBetDisplay(0);
+    }
+
     return (
         <div className='blackJackBet'>
             <BetDisplay
-                bet={props.bet} 
+                betDisplay={betDisplay}
+                resetBetDisplay={resetBetDisplay} 
             />
             <BetChooser
                 funds={props.funds}
-                toggleBet={props.toggleBet} 
+                addBetDisplay={addBetDisplay} 
             />
             <br></br>
             <BetButtons

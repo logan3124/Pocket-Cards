@@ -4,13 +4,16 @@ import PropTypes from 'prop-types';
 export const BetDisplay = (props) => {
     return (
         <div className='display'>
-            <div>1000</div>
-            <button>X</button>
+            <div>{props.betDisplay}</div>
+            <button onClick={props.resetBetDisplay}>
+                X
+            </button>
         </div>
     )
 }
 
 
 BetDisplay.propTypes = {
-    bet: PropTypes.number.isRequired
+    betDisplay: PropTypes.number.isRequired,
+    resetBetDisplay: PropTypes.func.isRequired
 }
