@@ -1,0 +1,20 @@
+@import '../../sassStyles/variables';
+
+.bettingRow {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    bottom: 5rem;
+}
+
+.betting {
+    width: 10rem;
+    height: 3rem;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: $primary-color;
+    border-radius: 10px;
+    border: 0px solid transparent;
+}

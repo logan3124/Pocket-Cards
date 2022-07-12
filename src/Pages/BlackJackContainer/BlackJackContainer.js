@@ -1,5 +1,4 @@
 import './BlackJackContainer.scss';
-import { DropDown } from '../../Components/DropDown/DropDown.js';
 import { BlackJackBet } from '../BlackJackBet/BlackJackBet.js';
 import { BlackJackPlay } from '../BlackJackPlay/BlackJackPlay.js';
 import { useState } from 'react';
@@ -24,12 +23,15 @@ export const BlackJackContainer = () => {
     }
 
     return (
-        <div>
-            <DropDown />
-            <div className="bet">{bet}</div>
-            <h1>Pocket Cards</h1>
-            <div className="funds">{funds}</div>
-            <button>Theme</button>
+        <div className='blackJack'>
+            <header className='top'>
+                <div className='menu'>Menu</div>
+                <div className="bet">{bet}</div>
+                <h1>Pocket Cards</h1>
+                <div className="funds">{funds}</div>
+                <div className='theme'>Theme</div>
+            </header>
+            <main>
             {
             betting? 
             <BlackJackBet 
@@ -44,6 +46,7 @@ export const BlackJackContainer = () => {
                 bet={bet}
             />
             }
+            </main>
         </div>
     )
 }

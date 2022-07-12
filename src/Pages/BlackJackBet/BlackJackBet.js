@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 export const BlackJackBet = (props) => {
     return (
-        <div>
+        <div className='blackJackBet'>
             <BetDisplay
                 bet={props.bet} 
             />

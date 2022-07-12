@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const BetChooser = () => {
     return (
-        <div>
+        <div className='row'>
             <div className='Container'>
                 <div className='chip'>
                    <p>5</p>

@@ -1,6 +1,46 @@
 @import '../../sassStyles/variables';
 
-.bet, .funds {
-    background-color: $tertiary-color;
+@import '../../sassStyles/variables';
+
+.blackJack {
+    width: 100vw;
+    height: 100vh;
+    background-color: $secondary-color;
+    .top {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .menu, .theme {
+            display: inline-flex;
+            width: 6rem;
+            height: 3rem;
+            background: $primary-color;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            font-weight: bold;
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: $primary-color;
+            font-size: 60px;
+        }
+        .bet, .funds {
+            background-color: $tertiary-color;
+            height: 3rem;
+            width: 4rem;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            font-weight: bold;
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
+
+
 

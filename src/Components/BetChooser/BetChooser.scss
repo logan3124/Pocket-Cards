@@ -1,21 +1,29 @@
 @import '../../sassStyles/variables';
 @import '../../sassStyles/mixins';
 
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    bottom: 15rem;
+}
+
 .Container {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     background-color: $primary-color;
     border-radius: 50%;
-    @include chipGradient($primary-color3, $secondary-color3);
-    display: flex;
+    @include chipGradient($primary-color, $tertiary-color);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 } 
 
 .chip {
-    width: 4rem;
-    height: 4rem;
-    background-color: $primary-color3;
+    width: 5rem;
+    height: 5rem;
+    background-color: $primary-color;
     border-radius: 50%;
     display: flex;
     align-items: center;
