@@ -7,11 +7,15 @@ import PropTypes from 'prop-types';
 
 export const BlackJackPlay = () => {
     return (
-        <div>
-            <Dealer />
-            <Deck />
-            <Player />
-            <Deck />
+        <div className='play'>
+            <div className='section'>
+                <Dealer />
+                <Deck />
+            </div>
+            <div className='section'>
+                <Player />
+                <Deck />
+            </div>
             <Controls />
         </div>
     )

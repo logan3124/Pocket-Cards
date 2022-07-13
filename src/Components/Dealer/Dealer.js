@@ -2,8 +2,9 @@ import './Dealer.scss';
 
 export const Dealer = () => {
     return (
-        <div>
-            
+        <div className='dealer'>
+            <div></div>
+            <p>Dealer</p>
         </div>
     )
 }

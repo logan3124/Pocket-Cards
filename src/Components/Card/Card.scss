@@ -1,0 +1,30 @@
+
+.card {
+    margin: 0;
+    width: 6rem;
+    height: 9rem;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    p {
+        margin: 0;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .left {
+        text-align: left;
+        margin-top: 0.25rem;
+        margin-left: 0.25rem;
+    }
+    .suit {
+        text-align: center;
+        font-size: 40px;
+    }
+    .right {
+        text-align: right;
+        margin-bottom: 0.25rem;
+        margin-right: 0.25rem;
+    }
+}
