@@ -15,7 +15,7 @@
         border-radius: 50%;
         background-color: lightgray;
         margin: 0;
-        border: 4px solid $tertiary-color;
+        border: 4px solid $primary-color;
     }
     p {
         font-weight: bold;
@@ -26,7 +26,7 @@
         text-align: center;
         margin: 0;
         color: white;
-        background-color: $tertiary-color;
+        background-color: $primary-color;
         position: relative;
         bottom: 1.75rem;
     }

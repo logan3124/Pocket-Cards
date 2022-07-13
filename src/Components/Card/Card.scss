@@ -1,3 +1,24 @@
+@import '../../sassStyles/variables';
+
+.cardBackground {
+    width: 7rem;
+    height: 10rem;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m {
+    position: relative;
+    right: 1.8rem;
+}
+
+.mm {
+    position: relative;
+    right: 3.6rem
+}
 
 .card {
     margin: 0;

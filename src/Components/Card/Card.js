@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 export const Card = (props) => {
     return (
-        <div className='card'>
-            <p className='left'>{props.rank}</p>
-            <p className='suit'>{props.suit}</p>
-            <p className='right'>{props.rank}</p>
+        <div className={'cardBackground' + ' ' + props.m}>
+            <div className='card'>
+                <p className='left'>{props.rank}</p>
+                <p className='suit'>{props.suit}</p>
+                <p className='right'>{props.rank}</p>
+            </div>
         </div>
     )
 }
