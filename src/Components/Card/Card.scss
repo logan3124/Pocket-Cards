@@ -10,16 +10,6 @@
     justify-content: center;
 }
 
-.m {
-    position: relative;
-    right: 1.8rem;
-}
-
-.mm {
-    position: relative;
-    right: 3.6rem
-}
-
 .card {
     margin: 0;
     width: 6rem;
@@ -27,8 +17,6 @@
     background-color: white;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     p {
         margin: 0;
         font-weight: bold;
@@ -43,9 +31,22 @@
         text-align: center;
         font-size: 40px;
     }
+    .back {
+        text-align: center;
+        font-size: 110px;
+        font-family: 'Roboto', sans-serif;
+    }
     .right {
         text-align: right;
         margin-bottom: 0.25rem;
         margin-right: 0.25rem;
     }
+}
+.f {
+    flex-direction: column;
+    justify-content: space-between;
+}
+.b {
+    justify-content: center;
+    align-items: center;
 }

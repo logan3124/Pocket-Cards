@@ -4,9 +4,9 @@ import { Card } from '../Card/Card.js';
 export const Deck = () => {
     return (
         <div className='deck'>
-            <Card rank="J" suit="♠"/>
-            <Card rank="J" suit="♠" m="m"/>
-            <Card rank="J" suit="♠" m="mm"/>
+            <Card rank="J" suit="♠" back={false}/>
+            <Card rank="J" suit="♠" back={true}/>
+            <Card rank="J" suit="♠" back={true}/>
         </div>
     )
 }

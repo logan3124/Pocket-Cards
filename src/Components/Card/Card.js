@@ -3,17 +3,23 @@ import PropTypes from 'prop-types';
 
 export const Card = (props) => {
     return (
-        <div className={'cardBackground' + ' ' + props.m}>
-            <div className='card'>
+        <div className='cardBackground'>
+            {props.back ?
+            <div className='card b'>
+                <p className='back'>X</p>
+            </div> :
+            <div className='card f'>
                 <p className='left'>{props.rank}</p>
                 <p className='suit'>{props.suit}</p>
                 <p className='right'>{props.rank}</p>
             </div>
+            } 
         </div>
     )
 }
 
 Card.propTypes = {
     rank: PropTypes.string.isRequired,
-    suit: PropTypes.string.isRequired
+    suit: PropTypes.string.isRequired,
+    back: PropTypes.bool.isRequired
 }
