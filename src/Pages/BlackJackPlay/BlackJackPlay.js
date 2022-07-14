@@ -4,6 +4,7 @@ import { Deck } from '../../Components/Deck/Deck.js';
 import { Player } from '../../Components/Player/Player.js';
 import { Controls } from '../../Components/Controls/Controls.js';
 import { StartControls } from '../../Components/StartControls/StartControls';
+import { EndControls } from '../../Components/EndControls/EndControls';
 import { dealCard } from './BlackJackLogic.js';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -24,6 +25,7 @@ export const BlackJackPlay = (props) => {
             dealCard(),
             dealCard()
         ])
+        setStage('middle');
     }
 
     const handleHitClick = () => {
@@ -36,6 +38,7 @@ export const BlackJackPlay = (props) => {
         total += card.value;
         if (total > 21) {
             setOutcome('LOSER');
+            props.removeFunds(props.bet)
             setStage('end');
         }
     }
@@ -53,8 +56,10 @@ export const BlackJackPlay = (props) => {
         let playerTotal = calculateTotal(playerDeck);
         if (dealerTotal > playerTotal) {
             setOutcome('LOSER');
+            props.removeFunds(props.bet)
         } else if (dealerTotal < playerTotal) {
             setOutcome('WINNER');
+            props.addFunds(props.bet)
         } else {
             setOutcome('DRAW');
         }
@@ -88,7 +93,7 @@ export const BlackJackPlay = (props) => {
                 <StartControls handleEditClick={props.toggleBetting} handleDealClick={handleDealClick}/> :
                 stage === "middle" ?
                 <Controls handleHitClick={handleHitClick} handleStandClick={handleStandClick} /> :
-                <div></div>
+                <EndControls handlePlayAgain={props.toggleBetting}/>
             }
         </div>
     )
@@ -96,6 +101,7 @@ export const BlackJackPlay = (props) => {
 
 BlackJackPlay.propTypes = {
     toggleBetting: PropTypes.func.isRequired,
-    toggleFunds: PropTypes.func.isRequired,
+    addFunds: PropTypes.func.isRequired,
+    removeFunds: PropTypes.func.isRequired,
     bet: PropTypes.number.isRequired
 }

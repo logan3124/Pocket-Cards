@@ -18,8 +18,12 @@ export const BlackJackContainer = () => {
 
     const [funds, setFunds] = useState(500);
 
-    const toggleFunds = (newFunds) => {
-        setFunds(newFunds)
+    const addFunds = (amount) => {
+        setFunds((prev) => prev - amount)
+    }
+
+    const removeFunds = (amount) => {
+        setFunds((prev) => prev - amount)
     }
 
     const [theme, setTheme] = useState('red');
@@ -57,7 +61,8 @@ export const BlackJackContainer = () => {
             /> : 
             <BlackJackPlay
                 toggleBetting={toggleBetting}
-                toggleFunds={toggleFunds}
+                addFunds={addFunds}
+                removeFunds={removeFunds}
                 bet={bet}
             />
             }
