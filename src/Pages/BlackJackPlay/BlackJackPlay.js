@@ -3,20 +3,28 @@ import { Dealer } from '../../Components/Dealer/Dealer.js';
 import { Deck } from '../../Components/Deck/Deck.js';
 import { Player } from '../../Components/Player/Player.js';
 import { Controls } from '../../Components/Controls/Controls.js';
-import { blackJackDeck, dealCard } from './BlackJackLogic.js';
+import { StartControls } from '../../Components/StartControls/StartControls';
+import { dealCard } from './BlackJackLogic.js';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
- 
 
-const initialPlayer = [dealCard(), dealCard()];
+export const BlackJackPlay = (props) => {
 
-const initialDealer = [dealCard(), dealCard()];
-
-export const BlackJackPlay = () => {
-
-    const [playerDeck, setPlayerDeck] = useState(initialPlayer);
-    const [dealerDeck, setDealerDeck] = useState(initialDealer);
+    const [playerDeck, setPlayerDeck] = useState([]);
+    const [dealerDeck, setDealerDeck] = useState([]);
+    const [stage, setStage] = useState('start')
     const [outcome, setOutcome] = useState('');
+
+    const handleDealClick = () => {
+        setPlayerDeck([
+            dealCard(),
+            dealCard()
+        ])
+        setDealerDeck([
+            dealCard(),
+            dealCard()
+        ])
+    }
 
     const handleHitClick = () => {
         let total = calculateTotal(playerDeck);
@@ -28,6 +36,7 @@ export const BlackJackPlay = () => {
         total += card.value;
         if (total > 21) {
             setOutcome('LOSER');
+            setStage('end');
         }
     }
 
@@ -49,6 +58,7 @@ export const BlackJackPlay = () => {
         } else {
             setOutcome('DRAW');
         }
+        setStage('end');
     }
 
     const calculateTotal = (deck) => {
@@ -73,7 +83,13 @@ export const BlackJackPlay = () => {
                 <Player />
                 <Deck cards={playerDeck} total={calculateTotal(playerDeck)}/>
             </div>
-            <Controls handleHitClick={handleHitClick} handleStandClick={handleStandClick}/>
+            {
+                stage === "start" ?
+                <StartControls handleEditClick={props.toggleBetting} handleDealClick={handleDealClick}/> :
+                stage === "middle" ?
+                <Controls handleHitClick={handleHitClick} handleStandClick={handleStandClick} /> :
+                <div></div>
+            }
         </div>
     )
 }

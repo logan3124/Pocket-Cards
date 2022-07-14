@@ -9,7 +9,11 @@ export const Deck = (props) => {
             {props.cards.map((card, index) => {
                 return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={false}/>)
             })}
-            <p className='value'>{props.total}</p>
+            {props.total === 0 ?
+                <p></p>:
+                <p className='value'>{props.total}</p>
+            }
+            
         </div>
     )
 }
