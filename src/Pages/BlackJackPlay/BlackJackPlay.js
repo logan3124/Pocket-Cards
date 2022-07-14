@@ -54,12 +54,12 @@ export const BlackJackPlay = (props) => {
             dealerTotal += card.value;
         }
         let playerTotal = calculateTotal(playerDeck);
-        if (dealerTotal > playerTotal) {
-            setOutcome('LOSER');
-            props.removeFunds(props.bet)
-        } else if (dealerTotal < playerTotal) {
+        if (dealerTotal < playerTotal || dealerTotal > 21) {
             setOutcome('WINNER');
             props.addFunds(props.bet)
+        } else if (dealerTotal > playerTotal) {
+            setOutcome('LOSER');
+            props.removeFunds(props.bet)
         } else {
             setOutcome('DRAW');
         }
@@ -78,7 +78,7 @@ export const BlackJackPlay = (props) => {
         <div className='play'>
             <div className='section'>
                 <Dealer />
-                <Deck cards={dealerDeck} total={calculateTotal(dealerDeck)}/>
+                <Deck cards={dealerDeck} stage={stage} total={calculateTotal(dealerDeck)}/>
             </div>
             {outcome ? 
                 <p className='outcome'>{outcome}</p> :

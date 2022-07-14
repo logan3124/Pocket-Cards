@@ -6,12 +6,19 @@ export const Deck = (props) => {
 
     return (
         <div className='deck'>
-            {props.cards.map((card, index) => {
-                return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={false}/>)
-            })}
+            {(props.stage === "end" || !props.stage) ?
+                props.cards.map((card, index) => {
+                    return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={false}/>)
+                }) :
+                props.cards.map((card, index) => {
+                    return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={index===0}/>)
+                })
+            }
             {props.total === 0 ?
                 <p></p>:
-                <p className='value'>{props.total}</p>
+                (props.stage === "end" || !props.stage) ?
+                    <p className='value'>{props.total}</p> :
+                    <p className='value'>?</p>
             }
             
         </div>
@@ -19,6 +26,7 @@ export const Deck = (props) => {
 }
 
 Deck.propTypes = {
+    stage: PropTypes.string,
     cards: PropTypes.array.isRequired,
     total: PropTypes.number.isRequired
 }
