@@ -4,4 +4,10 @@
     justify-content: center;
     height: 9rem;
     align-self: center;
+    .value {
+        font-weight: bold;
+        font-size: 40px;
+        position: relative;
+        top: -3.5rem;
+    }
 }

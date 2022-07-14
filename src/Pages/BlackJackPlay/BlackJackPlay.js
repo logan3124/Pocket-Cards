@@ -7,7 +7,6 @@ import { blackJackDeck, dealCard } from './BlackJackLogic.js';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
  
-console.log(blackJackDeck.length);
 
 const initialPlayer = [dealCard(), dealCard()];
 
