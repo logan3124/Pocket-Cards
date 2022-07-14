@@ -16,23 +16,38 @@ export const BlackJackPlay = () => {
 
     const [playerDeck, setPlayerDeck] = useState(initialPlayer);
     const [dealerDeck, setDealerDeck] = useState(initialDealer);
+    const [outcome, setOutcome] = useState('');
 
     const handleHitClick = () => {
+        let total = calculateTotal(playerDeck);
+        let card = dealCard();
         setPlayerDeck((prev) => [
             ...prev,
-            dealCard()
+            card
         ])
+        total += card.value;
+        if (total > 21) {
+            setOutcome('LOSER');
+        }
     }
 
     const handleStandClick = () => {
-        let total = calculateTotal(dealerDeck);
-        while (total < 17) {
+        let dealerTotal = calculateTotal(dealerDeck);
+        while (dealerTotal < 17) {
             let card = dealCard()
             setDealerDeck((prev) => [
                 ...prev,
                 card
             ])
-            total += card.value;
+            dealerTotal += card.value;
+        }
+        let playerTotal = calculateTotal(playerDeck);
+        if (dealerTotal > playerTotal) {
+            setOutcome('LOSER');
+        } else if (dealerTotal < playerTotal) {
+            setOutcome('WINNER');
+        } else {
+            setOutcome('DRAW');
         }
     }
 
@@ -50,6 +65,10 @@ export const BlackJackPlay = () => {
                 <Dealer />
                 <Deck cards={dealerDeck} total={calculateTotal(dealerDeck)}/>
             </div>
+            {outcome ? 
+                <p className='outcome'>{outcome}</p> :
+                <p className='outcome'></p>
+            }
             <div className='section'>
                 <Player />
                 <Deck cards={playerDeck} total={calculateTotal(playerDeck)}/>
