@@ -10,7 +10,7 @@ export const Controls = (props) => {
             <button>
                 x2
             </button>
-            <button>
+            <button onClick={props.handleStandClick}>
                 Stand
             </button>
         </div>
@@ -18,5 +18,6 @@ export const Controls = (props) => {
 }
 
 Controls.propTypes = {
-    handleHitClick: PropTypes.func.isRequired
+    handleHitClick: PropTypes.func.isRequired,
+    handleStandClick: PropTypes.func.isRequired
 }

@@ -24,6 +24,18 @@ export const BlackJackPlay = () => {
         ])
     }
 
+    const handleStandClick = () => {
+        let total = calculateTotal(dealerDeck);
+        while (total < 17) {
+            let card = dealCard()
+            setDealerDeck((prev) => [
+                ...prev,
+                card
+            ])
+            total += card.value;
+        }
+    }
+
     const calculateTotal = (deck) => {
         let total = 0;
         deck.forEach((card) => {
@@ -42,7 +54,7 @@ export const BlackJackPlay = () => {
                 <Player />
                 <Deck cards={playerDeck} total={calculateTotal(playerDeck)}/>
             </div>
-            <Controls handleHitClick={handleHitClick}/>
+            <Controls handleHitClick={handleHitClick} handleStandClick={handleStandClick}/>
         </div>
     )
 }
