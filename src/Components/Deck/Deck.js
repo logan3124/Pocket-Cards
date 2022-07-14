@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 export const Deck = (props) => {
     return (
         <div className='deck'>
-            {props.cards.map((card) => {
-                return (<Card rank={card.rank} suit={card.suit} back={false}/>)
+            {props.cards.map((card, index) => {
+                return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={false}/>)
             })}
         </div>
     )

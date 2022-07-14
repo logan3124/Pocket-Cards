@@ -3,26 +3,25 @@ import { Dealer } from '../../Components/Dealer/Dealer.js';
 import { Deck } from '../../Components/Deck/Deck.js';
 import { Player } from '../../Components/Player/Player.js';
 import { Controls } from '../../Components/Controls/Controls.js';
-import { blackJackDeck, shuffleDeck, dealCard } from './BlackJackLogic.js';
-import { useState, useEffect } from 'react';
+import { blackJackDeck, dealCard } from './BlackJackLogic.js';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
+ 
+console.log(blackJackDeck.length);
 
+const initialPlayer = [dealCard(), dealCard()];
+
+const initialDealer = [dealCard(), dealCard()];
 
 export const BlackJackPlay = () => {
-    const [deck, setDeck] = useState(shuffleDeck(blackJackDeck.slice()))
 
-    const DealCard = () => {
-        console.log(deck.slice(0, 1))
-        setDeck((prev) => prev.slice(1))
-    }
-
-    const [playerDeck, setPlayerDeck] = useState([dealCard(deck), dealCard(deck)]);
-    const [dealerDeck, setDealerDeck] = useState([dealCard(deck), dealCard(deck)]);
+    const [playerDeck, setPlayerDeck] = useState(initialPlayer);
+    const [dealerDeck, setDealerDeck] = useState(initialDealer);
 
     const handleHitClick = () => {
         setPlayerDeck((prev) => [
-            ...prev,
-            dealCard(deck)
+            dealCard(),
+            ...prev
         ])
     }
 

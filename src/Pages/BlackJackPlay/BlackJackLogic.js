@@ -1,9 +1,9 @@
 
-export const blackJackDeck = []
+const deck = []
 
 for (let i = 2; i < 11; i++) {
     ['♥', '♦', '♠', '♣'].forEach(suit => {
-        blackJackDeck.push((
+        deck.push((
             {
                 rank: i.toString(),
                 suit: suit,
@@ -20,34 +20,34 @@ for (let i = 2; i < 11; i++) {
             suit: suit,
             value: 10
         }
-        blackJackDeck.push(obj);
+        deck.push(obj);
     })
 })
 
 
 
-blackJackDeck.push((
+deck.push((
     {
         rank: 'A',
         suit: '♥',
         value: 11
     }
 ))
-blackJackDeck.push((
+deck.push((
     {
         rank: 'A',
         suit: '♦',
         value: 11
     }
 ))
-blackJackDeck.push((
+deck.push((
     {
         rank: 'A',
         suit: '♠',
         value: 11
     }
 ))
-blackJackDeck.push((
+deck.push((
     {
         rank: 'A',
         suit: '♣',
@@ -55,7 +55,7 @@ blackJackDeck.push((
     }
 ))
 
-export const shuffleDeck = (deck) => {
+const shuffleDeck = (deck) => {
     let newDeck = [];
     for (let i = 0; i < 52; i++) {
         newDeck.push(deck.splice(Math.floor(Math.random() * (deck.length - i)), 1)[0])
@@ -63,6 +63,12 @@ export const shuffleDeck = (deck) => {
     return newDeck;
 }
 
-export const dealCard = (deck) => {
-    return deck.shift();
+export let blackJackDeck = shuffleDeck(deck.slice());
+
+export const dealCard = () => {
+    return blackJackDeck.pop();
+}
+
+export const resetDeck = () => {
+    blackJackDeck = deck.slice();
 }
