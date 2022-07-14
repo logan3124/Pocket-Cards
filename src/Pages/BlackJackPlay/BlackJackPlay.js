@@ -19,20 +19,28 @@ export const BlackJackPlay = () => {
 
     const handleHitClick = () => {
         setPlayerDeck((prev) => [
-            dealCard(),
-            ...prev
+            ...prev,
+            dealCard()
         ])
+    }
+
+    const calculateTotal = (deck) => {
+        let total = 0;
+        deck.forEach((card) => {
+            total += card.value;
+        })
+        return total;
     }
 
     return (
         <div className='play'>
             <div className='section'>
                 <Dealer />
-                <Deck cards={dealerDeck}/>
+                <Deck cards={dealerDeck} total={calculateTotal(dealerDeck)}/>
             </div>
             <div className='section'>
                 <Player />
-                <Deck cards={playerDeck}/>
+                <Deck cards={playerDeck} total={calculateTotal(playerDeck)}/>
             </div>
             <Controls handleHitClick={handleHitClick}/>
         </div>

@@ -63,7 +63,7 @@ const shuffleDeck = (deck) => {
     return newDeck;
 }
 
-export let blackJackDeck = shuffleDeck(deck.slice());
+export let blackJackDeck = shuffleDeck(shuffleDeck(shuffleDeck(shuffleDeck(deck.slice()))));
 
 export const dealCard = () => {
     return blackJackDeck.pop();
