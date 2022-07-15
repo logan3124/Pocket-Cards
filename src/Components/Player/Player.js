@@ -1,11 +1,16 @@
 import './Player.scss';
-import grandpa from '../../images/grandpa.svg';
+import girl2 from '../../images/girl2.svg';
+import PropTypes from 'prop-types';
 
-export const Player = () => {
+export const Player = (props) => {
     return (
         <div className='player'>
-            <img src={grandpa} />
-            <p>Player</p>
+            <img src={girl2} className={props.theme}/>
+            <p className={props.theme}>Player</p>
         </div>
     )
+}
+
+Player.propTypes = {
+    theme: PropTypes.string.isRequired
 }

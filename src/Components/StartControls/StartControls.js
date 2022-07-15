@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 export const StartControls = (props) => {
     return (
         <div className="startControls">
-            <button onClick={props.handleEditClick}>
+            <button className={props.theme} onClick={props.handleEditClick}>
                 Edit Bet
             </button>
-            <button onClick={props.handleDealClick}>
+            <button className={props.theme} onClick={props.handleDealClick}>
                 Deal
             </button>
         </div>
@@ -15,6 +15,7 @@ export const StartControls = (props) => {
 }
 
 StartControls.propTypes = {
+    theme: PropTypes.string.isRequired,
     handleEditClick: PropTypes.func.isRequired,
     handleDealClick: PropTypes.func.isRequired
 }

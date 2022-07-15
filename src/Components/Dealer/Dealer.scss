@@ -15,7 +15,15 @@
         border-radius: 50%;
         background-color: lightgray;
         margin: 0;
-        border: 4px solid $primary-color;
+    }
+    img.red {
+        border: 5px solid $primary-color;
+    }
+    img.blue {
+        border: 5px solid $primary-color2;
+    }
+    img.green {
+        border: 5px solid $primary-color3;
     }
     p {
         font-weight: bold;
@@ -26,8 +34,16 @@
         text-align: center;
         margin: 0;
         color: white;
-        background-color: $primary-color;
         position: relative;
         bottom: 1.75rem;
+    }
+    p.red {
+        background-color: $primary-color;
+    }
+    p.blue {
+        background-color: $primary-color2;
+    }
+    p.green {
+        background-color: $primary-color3;
     }
 }

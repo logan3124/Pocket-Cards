@@ -13,7 +13,15 @@
         font-size: 20px;
         justify-content: center;
         align-items: center;
-        background: $primary-color;
         border: 0px solid transparent;
+    }
+    .red {
+        background: $primary-color;
+    }
+    .blue {
+        background: $primary-color2;
+    }
+    .green {
+        background: $primary-color3;
     }
 }

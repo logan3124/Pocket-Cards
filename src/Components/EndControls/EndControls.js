@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 export const EndControls = (props) => {
     return (
         <div className="endControls">
-            <button onClick={props.handlePlayAgain}>
+            <button className={props.theme} onClick={props.handlePlayAgain}>
                 Play Again
             </button>
-            <button>
+            <button className={props.theme}>
                 Exit
             </button>
         </div>
@@ -15,5 +15,6 @@ export const EndControls = (props) => {
 }
 
 EndControls.propTypes = {
+    theme: PropTypes.string.isRequired,
     handlePlayAgain: PropTypes.func.isRequired
 }

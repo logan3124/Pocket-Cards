@@ -77,29 +77,30 @@ export const BlackJackPlay = (props) => {
     return (
         <div className='play'>
             <div className='section'>
-                <Dealer />
-                <Deck cards={dealerDeck} stage={stage} total={calculateTotal(dealerDeck)}/>
+                <Dealer theme={props.theme}/>
+                <Deck theme={props.theme} cards={dealerDeck} stage={stage} total={calculateTotal(dealerDeck)}/>
             </div>
             {outcome ? 
                 <p className='outcome'>{outcome}</p> :
                 <p className='outcome'></p>
             }
             <div className='section'>
-                <Player />
-                <Deck cards={playerDeck} total={calculateTotal(playerDeck)}/>
+                <Player theme={props.theme}/>
+                <Deck theme={props.theme} cards={playerDeck} total={calculateTotal(playerDeck)}/>
             </div>
             {
                 stage === "start" ?
-                <StartControls handleEditClick={props.toggleBetting} handleDealClick={handleDealClick}/> :
+                <StartControls theme={props.theme} handleEditClick={props.toggleBetting} handleDealClick={handleDealClick}/> :
                 stage === "middle" ?
-                <Controls handleHitClick={handleHitClick} handleStandClick={handleStandClick} /> :
-                <EndControls handlePlayAgain={props.toggleBetting}/>
+                <Controls theme={props.theme} handleHitClick={handleHitClick} handleStandClick={handleStandClick} /> :
+                <EndControls theme={props.theme} handlePlayAgain={props.toggleBetting}/>
             }
         </div>
     )
 }
 
 BlackJackPlay.propTypes = {
+    theme: PropTypes.string.isRequired,
     toggleBetting: PropTypes.func.isRequired,
     addFunds: PropTypes.func.isRequired,
     removeFunds: PropTypes.func.isRequired,

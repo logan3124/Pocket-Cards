@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 export const Controls = (props) => {
     return (
         <div className='blackJackControls'>
-            <button onClick={props.handleHitClick}>
+            <button className={props.theme} onClick={props.handleHitClick}>
                 Hit
             </button>
-            <button>
+            <button className={props.theme}>
                 x2
             </button>
-            <button onClick={props.handleStandClick}>
+            <button className={props.theme} onClick={props.handleStandClick}>
                 Stand
             </button>
         </div>
@@ -18,6 +18,7 @@ export const Controls = (props) => {
 }
 
 Controls.propTypes = {
+    theme: PropTypes.string.isRequired,
     handleHitClick: PropTypes.func.isRequired,
     handleStandClick: PropTypes.func.isRequired
 }

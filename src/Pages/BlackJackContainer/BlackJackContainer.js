@@ -60,6 +60,7 @@ export const BlackJackContainer = () => {
                 bet={bet}
             /> : 
             <BlackJackPlay
+                theme={theme}
                 toggleBetting={toggleBetting}
                 addFunds={addFunds}
                 removeFunds={removeFunds}
