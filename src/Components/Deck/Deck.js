@@ -8,17 +8,29 @@ export const Deck = (props) => {
         <div className='deck'>
             {(props.stage === "end" || !props.stage) ?
                 props.cards.map((card, index) => {
-                    return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={false}/>)
+                    return (<Card 
+                        key={index.toString()} 
+                        rank={card.rank} 
+                        suit={card.suit} 
+                        back={false}
+                        pos={index}
+                    />)
                 }) :
                 props.cards.map((card, index) => {
-                    return (<Card key={index.toString()} rank={card.rank} suit={card.suit} back={index===0}/>)
+                    return (<Card 
+                        key={index.toString()} 
+                        rank={card.rank} 
+                        suit={card.suit} 
+                        back={index===0}
+                        pos={index}
+                    />)
                 })
             }
             {props.total === 0 ?
                 <p></p>:
                 (props.stage === "end" || !props.stage) ?
-                    <p className='value'>{props.total}</p> :
-                    <p className='value'>?</p>
+                    <p className='value' style={{position: 'relative', right: `${2.25 * (props.cards.length - 1)}rem`}}>{props.total}</p> :
+                    <p className='value' style={{position: 'relative', right: `${2.25 * (props.cards.length - 1)}rem`}}>?</p>
             }
             
         </div>

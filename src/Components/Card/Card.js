@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const Card = (props) => {
     return (
-        <div className='cardBackground'>
+        <div className='cardBackground' style={{position: 'relative', right: `${2.25 * props.pos}rem`}}>
             {props.back ?
             <div className='card b'>
                 <p className='back'>X</p>
@@ -21,5 +21,6 @@ export const Card = (props) => {
 Card.propTypes = {
     rank: PropTypes.string.isRequired,
     suit: PropTypes.string.isRequired,
-    back: PropTypes.bool.isRequired
+    back: PropTypes.bool.isRequired,
+    pos: PropTypes.number.isRequired
 }
