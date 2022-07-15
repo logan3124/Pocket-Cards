@@ -19,7 +19,7 @@ export const BlackJackContainer = () => {
     const [funds, setFunds] = useState(500);
 
     const addFunds = (amount) => {
-        setFunds((prev) => prev - amount)
+        setFunds((prev) => prev + amount)
     }
 
     const removeFunds = (amount) => {
