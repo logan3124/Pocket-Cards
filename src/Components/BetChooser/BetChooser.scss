@@ -14,6 +14,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        border: 0px solid transparent;
         .chip {
             width: 5rem;
             height: 5rem;
@@ -29,6 +30,10 @@
                 font-size: 20px;
             }
         }
+    }
+    .Container:disabled {
+        @include chipGradient(gray, lightgray);
+        background-color: gray;
     }
     .red {
         @include chipGradient($primary-color, $tertiary-color);

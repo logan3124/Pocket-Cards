@@ -24,6 +24,7 @@ export const BlackJackBet = (props) => {
                 resetBetDisplay={resetBetDisplay} 
             />
             <BetChooser
+                betDisplay={betDisplay}
                 theme={props.theme}
                 funds={props.funds}
                 addBetDisplay={addBetDisplay} 

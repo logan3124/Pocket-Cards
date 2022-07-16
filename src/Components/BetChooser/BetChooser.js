@@ -1,40 +1,62 @@
 import './BetChooser.scss';
 import PropTypes from 'prop-types';
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 export const BetChooser = (props) => {
 
     return (
         <div className='row'>
-            <div className={`Container ${props.theme}`} onClick={() => {props.addBetDisplay(5)}}>
+            <button 
+            className={`Container ${props.theme}`} 
+            onClick={() => {props.addBetDisplay(5)}}
+            disabled={(props.funds - props.betDisplay) < 5 ? true : false}
+            >
                 <div className='chip'>
                    <p>5</p>
                 </div>
-            </div>
-            <div className={`Container ${props.theme}`} onClick={() => {props.addBetDisplay(10)}}>
+            </button>
+            <button 
+            className={`Container ${props.theme}`} 
+            onClick={() => {props.addBetDisplay(10)}}
+            disabled={(props.funds - props.betDisplay) < 10 ? true : false}
+            >
                 <div className='chip'>
                     <p>10</p>
                 </div>
-            </div>
-            <div className={`Container ${props.theme}`} onClick={() => {props.addBetDisplay(25)}}>
+            </button>
+            <button 
+            className={`Container ${props.theme}`} 
+            onClick={() => {props.addBetDisplay(25)}}
+            disabled={(props.funds - props.betDisplay) < 25 ? true : false}
+            >
                 <div className='chip'>
                     <p>25</p>
                 </div>
-            </div>
-            <div className={`Container ${props.theme}`} onClick={() => {props.addBetDisplay(100)}}>
+            </button>
+            <button 
+            className={`Container ${props.theme}`} 
+            onClick={() => {props.addBetDisplay(100)}}
+            disabled={(props.funds - props.betDisplay) < 100  ? true : false}
+            >
                 <div className='chip'>
                     <p>100</p>
                 </div>
-            </div>
-            <div className={`Container ${props.theme}`} onClick={() => {props.addBetDisplay(500)}}>
+            </button>
+            <button 
+            className={`Container ${props.theme}`} 
+            onClick={() => {props.addBetDisplay(500)}}
+            disabled={(props.funds - props.betDisplay) < 500 ? true : false}
+            >
                 <div className='chip'>
                     <p>500</p>
                 </div>
-            </div>
+            </button>
         </div>
     )
 }
 
 BetChooser.propTypes = {
+    betDisplay: PropTypes.number.isRequired,
     funds: PropTypes.number.isRequired,
     addBetDisplay: PropTypes.func.isRequired,
     theme: PropTypes.string.isRequired
