@@ -1,4 +1,3 @@
-
 export const deck = []
 
 for (let i = 2; i < 11; i++) {
@@ -7,18 +6,21 @@ for (let i = 2; i < 11; i++) {
             {
                 rank: i.toString(),
                 suit: suit,
-                value: i
+                value: i,
+                color: (suit === '♥' || suit === '♦') ? 'red' : 'black'
             }
         ))
     })
 }
 
-['J', 'Q', 'K'].forEach(rank => {
+['J', 'Q', 'K'].forEach((rank, index) => {
     ['♥', '♦', '♠', '♣'].forEach(suit => {
         let obj = {
             rank: rank,
             suit: suit,
-            value: 10
+            value: (10 + index + 1),
+            color: (suit === '♥' || suit === '♦') ? 'red' : 'black'
+
         }
         deck.push(obj);
     })
@@ -30,39 +32,43 @@ deck.push((
     {
         rank: 'A',
         suit: '♥',
-        value: 11
+        value: 1,
+        color: 'red'
     }
 ))
 deck.push((
     {
         rank: 'A',
         suit: '♦',
-        value: 11
+        value: 1,
+        color: 'red'
     }
 ))
 deck.push((
     {
         rank: 'A',
         suit: '♠',
-        value: 11
+        value: 1,
+        color: 'black'
     }
 ))
 deck.push((
     {
         rank: 'A',
         suit: '♣',
-        value: 11
+        value: 1,
+        color: 'black'
     }
 ))
 
-export let blackJackDeck = deck.slice();
+export let solitaireDeck = deck.slice();
 
 export const shuffleDeck = () => {
     let newDeck = [];
     for (let i = 0; i < 52; i++) {
-        newDeck.push(blackJackDeck.splice(Math.floor(Math.random() * (blackJackDeck.length - i)), 1)[0])
+        newDeck.push(solitaireDeck.splice(Math.floor(Math.random() * (solitaireDeck.length - i)), 1)[0])
     }
-    blackJackDeck = newDeck;
+    solitaireDeck = newDeck;
 }
 
 shuffleDeck();
@@ -71,9 +77,9 @@ shuffleDeck();
 shuffleDeck();
 
 export const dealCard = () => {
-    return blackJackDeck.pop();
+    return solitaireDeck.pop();
 }
 
 export const resetDeck = () => {
-    blackJackDeck = deck.slice();
+    solitaireDeck = deck.slice();
 }
