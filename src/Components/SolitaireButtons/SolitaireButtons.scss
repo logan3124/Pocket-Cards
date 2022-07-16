@@ -1,0 +1,17 @@
+@import '../../sassStyles/variables';
+
+.solitaireButtons {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    button {
+        width: 10rem;
+        height: 3rem;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        border-radius: 10px;
+        border: 0px solid transparent;
+        background-color: $primary-color;
+    }
+}

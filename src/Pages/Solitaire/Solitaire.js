@@ -1,5 +1,8 @@
 import './Solitaire.scss';
 import { SolitaireColumn } from '../../Components/SolitaireColumn/SolitaireColumn';
+import { SolitaireDeck } from '../../Components/SolitaireDeck/SolitaireDeck';
+import { SolitairePile } from '../../Components/SolitairePile/SolitairePile';
+import { SolitaireButtons } from '../../Components/SolitaireButtons/SolitaireButtons';
 import { solitaireDeck } from './SolitaireLogic';
 import { Player } from '../../Components/Player/Player';
 
@@ -31,7 +34,19 @@ export const Solitaire = () => {
                         <SolitaireColumn />
                     </div>
                 </div>
+                <div className='solitaireCards'>
+                    <SolitaireDeck />
+                    <div className='pileRow'>
+                        <SolitairePile />
+                        <SolitairePile />
+                        <SolitairePile />
+                        <SolitairePile />
+                    </div>
+                </div>
             </main>
+            <footer>
+                <SolitaireButtons />
+            </footer>
         </div>
     )
 }

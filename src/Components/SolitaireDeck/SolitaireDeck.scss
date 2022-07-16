@@ -1,0 +1,13 @@
+
+.solitaireDeck {
+    border: 1px solid black;
+    width: 20vw;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    div {
+        height: 12rem;
+        width: 10rem;
+        border: 1px solid black;
+    }
+}

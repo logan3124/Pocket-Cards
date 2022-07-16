@@ -47,6 +47,7 @@
         width: 100vw;
         display: flex;
         justify-content: space-around;
+        margin-bottom: 2rem;
     }
     .playerRow {
         border: 1px solid black;
@@ -61,5 +62,18 @@
         width: 70vw;
         height: 30rem;
         justify-content: space-around;
+    }
+    .solitaireCards {
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 4rem;
+        .pileRow {
+            border: 1px solid black;
+            width: 40vw;
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+        }
     }
 }
