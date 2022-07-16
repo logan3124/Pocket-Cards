@@ -55,15 +55,20 @@ deck.push((
     }
 ))
 
-const shuffleDeck = (deck) => {
+export let blackJackDeck = deck.slice();
+
+export const shuffleDeck = () => {
     let newDeck = [];
     for (let i = 0; i < 52; i++) {
-        newDeck.push(deck.splice(Math.floor(Math.random() * (deck.length - i)), 1)[0])
+        newDeck.push(blackJackDeck.splice(Math.floor(Math.random() * (blackJackDeck.length - i)), 1)[0])
     }
-    return newDeck;
+    blackJackDeck = newDeck;
 }
 
-export let blackJackDeck = shuffleDeck(shuffleDeck(shuffleDeck(shuffleDeck(deck.slice()))));
+shuffleDeck();
+shuffleDeck();
+shuffleDeck();
+shuffleDeck();
 
 export const dealCard = () => {
     return blackJackDeck.pop();

@@ -5,8 +5,8 @@ import { Player } from '../../Components/Player/Player.js';
 import { Controls } from '../../Components/Controls/Controls.js';
 import { StartControls } from '../../Components/StartControls/StartControls';
 import { EndControls } from '../../Components/EndControls/EndControls';
-import { dealCard } from './BlackJackLogic.js';
-import { useState } from 'react';
+import { blackJackDeck, dealCard, resetDeck, shuffleDeck } from './BlackJackLogic.js';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export const BlackJackPlay = (props) => {
@@ -63,6 +63,11 @@ export const BlackJackPlay = (props) => {
         } else {
             setOutcome('DRAW');
         }
+        resetDeck();
+        shuffleDeck();
+        shuffleDeck();
+        shuffleDeck();
+        shuffleDeck();
         setStage('end');
     }
 
