@@ -50,6 +50,15 @@
         margin-right: 0.25rem;
     }
 }
+
+.Red {
+    color: $primary-color;
+}
+
+.Black {
+    color: black;
+}
+
 .f {
     flex-direction: column;
     justify-content: space-between;

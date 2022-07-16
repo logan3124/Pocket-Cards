@@ -7,7 +7,7 @@ for (let i = 2; i < 11; i++) {
                 rank: i.toString(),
                 suit: suit,
                 value: i,
-                color: (suit === '♥' || suit === '♦') ? 'red' : 'black'
+                color: (suit === '♥' || suit === '♦') ? 'Red' : 'Black'
             }
         ))
     })
@@ -19,7 +19,7 @@ for (let i = 2; i < 11; i++) {
             rank: rank,
             suit: suit,
             value: (10 + index + 1),
-            color: (suit === '♥' || suit === '♦') ? 'red' : 'black'
+            color: (suit === '♥' || suit === '♦') ? 'Red' : 'Black'
 
         }
         deck.push(obj);
@@ -33,7 +33,7 @@ deck.push((
         rank: 'A',
         suit: '♥',
         value: 1,
-        color: 'red'
+        color: 'Red'
     }
 ))
 deck.push((
@@ -41,7 +41,7 @@ deck.push((
         rank: 'A',
         suit: '♦',
         value: 1,
-        color: 'red'
+        color: 'Red'
     }
 ))
 deck.push((
@@ -49,7 +49,7 @@ deck.push((
         rank: 'A',
         suit: '♠',
         value: 1,
-        color: 'black'
+        color: 'Black'
     }
 ))
 deck.push((
@@ -57,7 +57,7 @@ deck.push((
         rank: 'A',
         suit: '♣',
         value: 1,
-        color: 'black'
+        color: 'Black'
     }
 ))
 

@@ -10,7 +10,8 @@ export const Card = (props) => {
         }
     } else {
         style = {
-            position: 'relative'
+            position: 'relative',
+            bottom: `${7 * props.offset}rem`
         }
     }
 
@@ -20,7 +21,7 @@ export const Card = (props) => {
             <div className='card b'>
                 <p className='back'>X</p>
             </div> :
-            <div className='card f'>
+            <div className={`card f ${props.color}`}>
                 <p className='left'>{props.rank}</p>
                 <p className='suit'>{props.suit}</p>
                 <p className='right'>{props.rank}</p>
@@ -35,5 +36,7 @@ Card.propTypes = {
     rank: PropTypes.string.isRequired,
     suit: PropTypes.string.isRequired,
     back: PropTypes.bool.isRequired,
-    pos: PropTypes.number
+    pos: PropTypes.number,
+    offset: PropTypes.number,
+    color: PropTypes.string
 }
