@@ -1,8 +1,9 @@
 @import '../../sassStyles/variables';
 
-.blackJack {
+.solitaire {
     width: 100vw;
     height: 100vh;
+    background-color: $secondary-color;
     .top {
         display: flex;
         justify-content: space-evenly;
@@ -18,27 +19,11 @@
             font-size: 20px;
             justify-content: center;
             align-items: center;
-        }
-        .menu.red, .theme.red {
             background: $primary-color;
-        }
-        .menu.blue, .theme.blue {
-            background: $primary-color2;
-        }
-        .menu.green, .theme.green {
-            background: $primary-color3;
         }
         h1 {
             font-size: 60px;
-        }
-        h1.red {
             color: $primary-color;
-        }
-        h1.blue {
-            color: $primary-color2;
-        }
-        h1.green {
-            color: $primary-color3;
         }
         .bet, .funds {
             height: 3rem;
@@ -50,29 +35,7 @@
             font-size: 20px;
             justify-content: center;
             align-items: center;
-        }
-        .bet.red, .funds.red {
             background-color: $tertiary-color;
-        }
-        .bet.blue, .funds.blue {
-            background-color: $tertiary-color2;
-        }
-        .bet.green, .funds.green {
-            background-color: $tertiary-color3;
         }
     }
 }
-.blackJack.red {
-    background-color: $secondary-color;
-}
-.blackJack.blue {
-    background-color: $secondary-color2;
-}
-.blackJack.green {
-    background-color: $secondary-color3;
-}
-
-
-
-
-

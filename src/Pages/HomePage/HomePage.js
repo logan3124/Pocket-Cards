@@ -6,7 +6,7 @@ export const HomePage = () => {
     return (
         <div>
             <h1>Pocket Cards</h1>
-            <Link to="/BlackJack">
+            <Link to="/Solitaire">
                 <button>Login</button>
             </Link>
             <Link to="/BlackJack">
