@@ -42,13 +42,23 @@
             background-color: $tertiary-color;
         }
     }
+    .solitaireDisplay {
+        border: 1px solid black;
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+    }
+    .playerRow {
+        border: 1px solid black;
+        width: 15vw;
+    }
     .solitaireRow {
         justify-self: center;
         border: 1px solid black;
         display: flex;
         position: relative;
         top: 0.5rem;
-        width: 95vw;
+        width: 70vw;
         height: 30rem;
         justify-content: space-around;
     }

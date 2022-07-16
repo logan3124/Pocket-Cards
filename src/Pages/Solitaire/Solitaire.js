@@ -1,6 +1,7 @@
 import './Solitaire.scss';
 import { SolitaireColumn } from '../../Components/SolitaireColumn/SolitaireColumn';
 import { solitaireDeck } from './SolitaireLogic';
+import { Player } from '../../Components/Player/Player';
 
 export const Solitaire = () => {
     return (
@@ -13,14 +14,22 @@ export const Solitaire = () => {
                 <div className='theme'>Theme</div>
             </header>
             <main>
-                <div className='solitaireRow'>
-                    <SolitaireColumn />
-                    <SolitaireColumn />
-                    <SolitaireColumn />
-                    <SolitaireColumn />
-                    <SolitaireColumn />
-                    <SolitaireColumn />
-                    <SolitaireColumn />
+                <div className='solitaireDisplay'>
+                    <div className='playerRow'>
+                        <Player theme='red' />
+                        <p>Time: </p>
+                        <p>Moves: </p>
+                        <p>Score: </p>
+                    </div>
+                    <div className='solitaireRow'>
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                        <SolitaireColumn />
+                    </div>
                 </div>
             </main>
         </div>
