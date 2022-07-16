@@ -5,7 +5,7 @@ import { Player } from '../../Components/Player/Player.js';
 import { Controls } from '../../Components/Controls/Controls.js';
 import { StartControls } from '../../Components/StartControls/StartControls';
 import { EndControls } from '../../Components/EndControls/EndControls';
-import { blackJackDeck, dealCard, resetDeck, shuffleDeck } from './BlackJackLogic.js';
+import { dealCard, resetDeck, shuffleDeck } from './BlackJackLogic.js';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 

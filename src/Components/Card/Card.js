@@ -2,8 +2,20 @@ import './Card.scss';
 import PropTypes from 'prop-types';
 
 export const Card = (props) => {
+    let style;
+    if (props.pos !== undefined) {
+        style = {
+            position: 'relative',
+            right: `${2.25 * props.pos}rem`
+        }
+    } else {
+        style = {
+            position: 'relative'
+        }
+    }
+
     return (
-        <div className={`cardBackground ${props.theme}`} style={{position: 'relative', right: `${2.25 * props.pos}rem`}}>
+        <div className={`cardBackground ${props.theme}`} style={style}>
             {props.back ?
             <div className='card b'>
                 <p className='back'>X</p>
@@ -23,5 +35,5 @@ Card.propTypes = {
     rank: PropTypes.string.isRequired,
     suit: PropTypes.string.isRequired,
     back: PropTypes.bool.isRequired,
-    pos: PropTypes.number.isRequired
+    pos: PropTypes.number
 }

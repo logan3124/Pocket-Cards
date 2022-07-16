@@ -1,10 +1,23 @@
 import './SolitaireColumn.scss';
 import { Card } from '../Card/Card.js';
+import PropTypes from 'prop-types';
 
-export const SolitaireColumn = () => {
+export const SolitaireColumn = (props) => {
     return (
         <div className='column'>
-            <Card theme='red' rank='J' suit='♠' back={false} pos={0} />
+            {props.cards.map((card, index) => {
+                return (<Card
+                    theme='red' 
+                    key={index.toString()} 
+                    rank={card.rank} 
+                    suit={card.suit} 
+                    back={false}
+                />)
+            })}
         </div>
     )
+}
+
+SolitaireColumn.propTypes = {
+    cards: PropTypes.array.isRequired
 }

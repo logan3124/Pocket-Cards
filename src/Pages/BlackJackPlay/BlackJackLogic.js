@@ -7,7 +7,7 @@ for (let i = 2; i < 11; i++) {
             {
                 rank: i.toString(),
                 suit: suit,
-                value: i
+                value: i,
             }
         ))
     })
@@ -18,7 +18,7 @@ for (let i = 2; i < 11; i++) {
         let obj = {
             rank: rank,
             suit: suit,
-            value: 10
+            value: 10,
         }
         deck.push(obj);
     })
