@@ -43,19 +43,32 @@
         }
     }
     .solitaireDisplay {
-        border: 1px solid black;
         width: 100vw;
         display: flex;
         justify-content: space-around;
         margin-bottom: 2rem;
     }
     .playerRow {
-        border: 1px solid black;
         width: 15vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+            height: 2.5rem;
+            width: 10rem;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $primary-color;
+        }
     }
     .solitaireRow {
         justify-self: center;
-        border: 1px solid black;
         display: flex;
         position: relative;
         top: 0.5rem;
@@ -64,7 +77,6 @@
         justify-content: space-around;
     }
     .solitaireCards {
-        border: 1px solid black;
         display: flex;
         justify-content: space-around;
         margin-bottom: 4rem;
