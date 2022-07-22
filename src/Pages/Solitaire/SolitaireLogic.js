@@ -1,4 +1,4 @@
-export const deck = []
+const deck = []
 
 for (let i = 2; i < 11; i++) {
     ['♥', '♦', '♠', '♣'].forEach(suit => {

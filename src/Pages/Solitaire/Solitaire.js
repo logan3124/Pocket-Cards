@@ -3,7 +3,7 @@ import { SolitaireColumn } from '../../Components/SolitaireColumn/SolitaireColum
 import { SolitaireDeck } from '../../Components/SolitaireDeck/SolitaireDeck';
 import { SolitairePile } from '../../Components/SolitairePile/SolitairePile';
 import { SolitaireButtons } from '../../Components/SolitaireButtons/SolitaireButtons';
-import { dealCard, resetDeck, shuffleDeck } from './SolitaireLogic.js';
+import { solitaireDeck, dealCard, resetDeck, shuffleDeck } from './SolitaireLogic.js';
 import { Player } from '../../Components/Player/Player';
 import { useState, useEffect } from 'react';
 
@@ -16,6 +16,18 @@ export const Solitaire = () => {
         column5: [],
         column6: [],
         column7: []
+    })
+
+    const [remainingDeck, setRemainingDeck] = useState({
+        pile1: [],
+        pile2: []
+    });
+    
+    const [endPile, setEndPile] = useState({
+        pile1: [],
+        pile2: [],
+        pile3: [],
+        pile4: []
     })
 
     const handleStartClick = () => {
@@ -33,8 +45,8 @@ export const Solitaire = () => {
                 newColumns[`column${j}`].push(dealCard());
             }
         }
-        console.log(newColumns);
         setColumns(({...newColumns}));
+        setRemainingDeck(({pile1: solitaireDeck.slice(), pile2: []}));
     }
 
     return (
@@ -65,7 +77,7 @@ export const Solitaire = () => {
                     </div>
                 </div>
                 <div className='solitaireCards'>
-                    <SolitaireDeck />
+                    <SolitaireDeck pile1={remainingDeck.pile1}/>
                     <div className='pileRow'>
                         <SolitairePile />
                         <SolitairePile />
