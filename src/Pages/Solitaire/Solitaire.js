@@ -8,6 +8,8 @@ import { Player } from '../../Components/Player/Player';
 import { useState, useEffect } from 'react';
 
 export const Solitaire = () => {
+    let intervalId;
+
     const [columns, setColumns] = useState({
         column1: [],
         column2: [],
@@ -30,6 +32,8 @@ export const Solitaire = () => {
         pile4: []
     })
 
+    const [time, setTime] = useState(0);
+
     const handleStartClick = () => {
         let newColumns = {
             column1: [],
@@ -47,6 +51,9 @@ export const Solitaire = () => {
         }
         setColumns(({...newColumns}));
         setRemainingDeck(({pile1: solitaireDeck.slice(), pile2: []}));
+        intervalId = setInterval(() => {
+            setTime((prev) => prev + 1)
+          }, 1000)
     }
 
     const handleDeckClick = () => {
@@ -72,9 +79,9 @@ export const Solitaire = () => {
                 <div className='solitaireDisplay'>
                     <div className='playerRow'>
                         <Player theme='red' />
-                        <p>Time: </p>
-                        <p>Moves: </p>
-                        <p>Score: </p>
+                        <p>Time: {time}</p>
+                        <p>Moves: 0</p>
+                        <p>Score: 0</p>
                     </div>
                     <div className='solitaireRow'>
                         <SolitaireColumn cards={columns.column1}/>
