@@ -49,6 +49,16 @@ export const Solitaire = () => {
         setRemainingDeck(({pile1: solitaireDeck.slice(), pile2: []}));
     }
 
+    const handleDeckClick = () => {
+        const card = remainingDeck.pile1[remainingDeck.pile1.length - 1]
+        setRemainingDeck((prev) => {
+            return ({
+                pile1: prev.pile1.slice(0, -1),
+                pile2: [card, ...prev.pile2]
+            })
+        })
+    }
+
     return (
         <div className='solitaire'>
             <header className='top'>
@@ -77,7 +87,7 @@ export const Solitaire = () => {
                     </div>
                 </div>
                 <div className='solitaireCards'>
-                    <SolitaireDeck pile1={remainingDeck.pile1}/>
+                    <SolitaireDeck remainingDeck={remainingDeck} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
                         <SolitairePile />
                         <SolitairePile />

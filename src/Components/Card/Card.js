@@ -16,7 +16,7 @@ export const Card = (props) => {
     }
 
     return (
-        <div className={`cardBackground ${props.theme}`} style={style}>
+        <div className={`cardBackground ${props.theme}`} style={style} onClick={props.handleDeckClick ? props.handleDeckClick : () => {}}>
             {props.back ?
             <div className='card b'>
                 <p className='back'>X</p>

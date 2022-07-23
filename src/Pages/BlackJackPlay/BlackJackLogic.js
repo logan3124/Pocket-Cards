@@ -77,3 +77,5 @@ export const dealCard = () => {
 export const resetDeck = () => {
     blackJackDeck = deck.slice();
 }
+
+console.log(blackJackDeck)
