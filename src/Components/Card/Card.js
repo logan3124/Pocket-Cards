@@ -18,10 +18,10 @@ export const Card = (props) => {
     return (
         <div className={`cardBackground ${props.theme}`} style={style} onClick={props.handleDeckClick ? props.handleDeckClick : () => {}}>
             {props.back ?
-            <div className='card b'>
+            <div className='card b' draggable='true' onDragStart={props.cardDrag}>
                 <p className='back'>X</p>
             </div> :
-            <div className={`card f ${props.color}`}>
+            <div className={`card f ${props.color}`} draggable='true' onDragStart={props.cardDrag}>
                 <p className='left'>{props.rank}</p>
                 <p className='suit'>{props.suit}</p>
                 <p className='right'>{props.rank}</p>

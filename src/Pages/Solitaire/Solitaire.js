@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 
 export const Solitaire = () => {
     let intervalId;
+    const [draggedCard, setDraggedCard] = useState(({}));
 
     const [columns, setColumns] = useState({
         column1: [],
@@ -66,6 +67,21 @@ export const Solitaire = () => {
         })
     }
 
+    const cardDrag = (card) => {
+        setDraggedCard(card)
+    }
+
+    const cardDrop = (column) => {
+        console.log('works')
+        setColumns((prev) => {
+            return ({
+                ...prev,
+                [`column${column}`]: [...prev[`column${column}`], {...draggedCard}]
+            })
+        })
+        setDraggedCard(({}));
+    }
+
     return (
         <div className='solitaire'>
             <header className='top'>
@@ -84,19 +100,19 @@ export const Solitaire = () => {
                         <p>Score: 0</p>
                     </div>
                     <div className='solitaireRow'>
-                        <SolitaireColumn cards={columns.column1}/>
-                        <SolitaireColumn cards={columns.column2}/>
-                        <SolitaireColumn cards={columns.column3}/>
-                        <SolitaireColumn cards={columns.column4}/>
-                        <SolitaireColumn cards={columns.column5}/>
-                        <SolitaireColumn cards={columns.column6}/>
-                        <SolitaireColumn cards={columns.column7}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(2)}} cards={columns.column2}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(3)}} cards={columns.column3}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(4)}} cards={columns.column4}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(5)}} cards={columns.column5}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
+                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
                     </div>
                 </div>
                 <div className='solitaireCards'>
                     <SolitaireDeck remainingDeck={remainingDeck} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
-                        <SolitairePile />
+                        <SolitairePile cardDrop={()=>{cardDrop(7)}}/>
                         <SolitairePile />
                         <SolitairePile />
                         <SolitairePile />
