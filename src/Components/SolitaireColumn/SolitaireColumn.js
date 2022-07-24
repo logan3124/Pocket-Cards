@@ -20,10 +20,10 @@ export const SolitaireColumn = (props) => {
                     key={index.toString()} 
                     rank={card.rank} 
                     suit={card.suit} 
-                    back={(index != props.cards.length - 1)}
+                    back={card.back}
                     color={card.color}
                     offset={index}
-                    cardDrag={(event) => props.cardDrag(card)}
+                    cardDrag={(event) => props.cardDrag(index)}
                 />)
             })}
         </div>

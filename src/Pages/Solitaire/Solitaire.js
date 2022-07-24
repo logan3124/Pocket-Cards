@@ -47,9 +47,13 @@ export const Solitaire = () => {
         }
         for (let i = 1; i < 8; i++) {
             for (let j = i; j < 8; j++) {
-                newColumns[`column${j}`].push(dealCard());
+                newColumns[`column${j}`].push(({
+                    ...dealCard(),
+                    back: (j != i)
+                }));
             }
         }
+        console.log(newColumns)
         setColumns(({...newColumns}));
         setRemainingDeck(({pile1: solitaireDeck.slice(), pile2: []}));
         intervalId = setInterval(() => {
@@ -67,16 +71,25 @@ export const Solitaire = () => {
         })
     }
 
-    const cardDrag = (card) => {
-        setDraggedCard(card)
+    const cardDrag = (column, index) => {
+        setDraggedCard(({
+            column: column,
+            index: index
+        }))
     }
 
     const cardDrop = (column) => {
-        console.log('works')
+        let card = columns[`column${draggedCard.column}`][draggedCard.index]
+        let lastcard = {
+            ...columns[`column${draggedCard.column}`][draggedCard.index - 1],
+            back: false
+        }
+        let list1 = columns[`column${draggedCard.column}`].slice(0, draggedCard.index - 1)
         setColumns((prev) => {
             return ({
                 ...prev,
-                [`column${column}`]: [...prev[`column${column}`], {...draggedCard}]
+                [`column${column}`]: [...prev[`column${column}`], {...card}],
+                [`column${draggedCard.column}`]: [...list1, lastcard]
             })
         })
         setDraggedCard(({}));
@@ -100,13 +113,13 @@ export const Solitaire = () => {
                         <p>Score: 0</p>
                     </div>
                     <div className='solitaireRow'>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(2)}} cards={columns.column2}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(3)}} cards={columns.column3}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(4)}} cards={columns.column4}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(5)}} cards={columns.column5}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
-                        <SolitaireColumn cardDrag={cardDrag} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(1, index)} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(2, index)} cardDrop={()=>{cardDrop(2)}} cards={columns.column2}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(3, index)} cardDrop={()=>{cardDrop(3)}} cards={columns.column3}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(4, index)} cardDrop={()=>{cardDrop(4)}} cards={columns.column4}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(5, index)} cardDrop={()=>{cardDrop(5)}} cards={columns.column5}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(6, index)} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
+                        <SolitaireColumn cardDrag={(index) => cardDrag(7, index)} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
                     </div>
                 </div>
                 <div className='solitaireCards'>
