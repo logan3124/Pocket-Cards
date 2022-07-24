@@ -18,7 +18,7 @@ export const Card = (props) => {
     return (
         <div className={`cardBackground ${props.theme}`} style={style} onClick={props.handleDeckClick ? props.handleDeckClick : () => {}}>
             {props.back ?
-            <div className='card b' draggable='true' onDragStart={props.handleDrag}>
+            <div className='card b'>
                 <p className='back'>X</p>
             </div> :
             <div className={`card f ${props.color}`} draggable='true' onDragStart={props.handleDrag}>

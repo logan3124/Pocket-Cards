@@ -115,6 +115,12 @@ export const Solitaire = () => {
                         [`column${column}`]: [...prev[`column${column}`], {...card, back: false}]
                     })
                 })
+                setRemainingDeck((prev) => {
+                    return ({
+                        ...prev,
+                        pile2: prev.pile2.slice(1)
+                    })
+                })
             }
         }
         setDraggedCard(({}))
