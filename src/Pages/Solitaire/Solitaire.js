@@ -79,19 +79,22 @@ export const Solitaire = () => {
     }
 
     const cardDrop = (column) => {
+        let endcard = columns[`column${column}`][columns[`column${column}`].length - 1]
         let card = columns[`column${draggedCard.column}`][draggedCard.index]
-        let lastcard = {
-            ...columns[`column${draggedCard.column}`][draggedCard.index - 1],
-            back: false
-        }
-        let list1 = columns[`column${draggedCard.column}`].slice(0, draggedCard.index - 1)
-        setColumns((prev) => {
-            return ({
-                ...prev,
-                [`column${column}`]: [...prev[`column${column}`], {...card}],
-                [`column${draggedCard.column}`]: [...list1, lastcard]
+        if ((card.value + 1 == endcard.value) && (card.color != endcard.color)) {
+            let lastcard = {
+                ...columns[`column${draggedCard.column}`][draggedCard.index - 1],
+                back: false
+            }
+            let list1 = columns[`column${draggedCard.column}`].slice(0, draggedCard.index - 1)
+            setColumns((prev) => {
+                return ({
+                    ...prev,
+                    [`column${column}`]: [...prev[`column${column}`], {...card}],
+                    [`column${draggedCard.column}`]: [...list1, lastcard]
+                })
             })
-        })
+        }
         setDraggedCard(({}));
     }
 
