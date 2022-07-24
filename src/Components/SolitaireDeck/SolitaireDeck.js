@@ -23,6 +23,7 @@ export const SolitaireDeck = (props) => {
                     suit={props.remainingDeck.pile2[0].suit} 
                     back={false}
                     color={props.remainingDeck.pile2[0].color}
+                    handleDrag={(event) => props.deckDrag(0)}
                 />}
             </div>
         </div>

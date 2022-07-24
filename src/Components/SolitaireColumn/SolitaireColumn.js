@@ -23,7 +23,7 @@ export const SolitaireColumn = (props) => {
                     back={card.back}
                     color={card.color}
                     offset={index}
-                    cardDrag={(event) => props.cardDrag(index)}
+                    handleDrag={(event) => props.cardDrag(index)}
                 />)
             })}
         </div>
