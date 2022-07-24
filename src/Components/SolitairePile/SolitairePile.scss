@@ -3,4 +3,16 @@
     border: 1px solid black;
     width: 10rem;
     height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .grey {
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        p {
+            color: gray;
+            font-size: 50px;
+        }
+    }
 }

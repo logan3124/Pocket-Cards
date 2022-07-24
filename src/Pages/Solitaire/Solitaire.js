@@ -120,20 +120,6 @@ export const Solitaire = () => {
         setDraggedCard(({}))
     }
 
-    const deckDrop = (column) => {
-        let endcard = columns[`column${column}`][columns[`column${column}`].length - 1]
-        let card = remainingDeck.pile2[draggedCard]
-        if ((card.value + 1 == endcard.value) && (card.color != endcard.color)) {
-            setColumns((prev) => {
-                return ({
-                    ...prev,
-                    [`column${column}`]: [...prev[`column${column}`], {...card}],
-                })
-            })
-        }
-        setDraggedCard(({}))
-    }
-
     return (
         <div className='solitaire'>
             <header className='top'>
@@ -164,10 +150,10 @@ export const Solitaire = () => {
                 <div className='solitaireCards'>
                     <SolitaireDeck remainingDeck={remainingDeck} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
-                        <SolitairePile cardDrop={()=>{cardDrop(7)}}/>
-                        <SolitairePile />
-                        <SolitairePile />
-                        <SolitairePile />
+                        <SolitairePile cards={endPile.pile1} suit='♥'/>
+                        <SolitairePile cards={endPile.pile2} suit='♦'/>
+                        <SolitairePile cards={endPile.pile3} suit='♠'/>
+                        <SolitairePile cards={endPile.pile4} suit='♣'/>
                     </div>
                 </div>
             </main>
