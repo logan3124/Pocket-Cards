@@ -62,10 +62,10 @@ export const Solitaire = () => {
     }
 
     const handleDeckClick = () => {
-        const card = remainingDeck.pile1[remainingDeck.pile1.length - 1]
+        const card = remainingDeck.pile1[0]
         setRemainingDeck((prev) => {
             return ({
-                pile1: prev.pile1.slice(0, -1),
+                pile1: prev.pile1.slice(1),
                 pile2: [card, ...prev.pile2]
             })
         })
@@ -126,6 +126,17 @@ export const Solitaire = () => {
         setDraggedCard(({}))
     }
 
+    const resetPile = () => {
+        let newDeck = []
+        for (let i = remainingDeck.pile2.length - 1; i >= 0; i--) {
+            newDeck.push(remainingDeck.pile2[i]) 
+        }
+        setRemainingDeck(({
+            pile1: newDeck,
+            pile2: []
+        }));
+    }
+
     return (
         <div className='solitaire'>
             <header className='top'>
@@ -154,7 +165,7 @@ export const Solitaire = () => {
                     </div>
                 </div>
                 <div className='solitaireCards'>
-                    <SolitaireDeck remainingDeck={remainingDeck} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
+                    <SolitaireDeck remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
                         <SolitairePile cards={endPile.pile1} suit='♥'/>
                         <SolitairePile cards={endPile.pile2} suit='♦'/>
