@@ -8,10 +8,10 @@ export const SolitairePile = (props) => {
             {(props.pile.cards.length > 0)? 
             (<Card
                 theme='red' 
-                rank={props.pile.cards[props.pile.cards.length - 1].rank} 
-                suit={props.pile.cards[props.pile.cards.length - 1].suit} 
+                rank={props.pile.cards[0].rank} 
+                suit={props.pile.cards[0].suit} 
                 back={false}
-                color={props.pile.cards[props.pile.cards.length - 1].color}
+                color={props.pile.cards[0].color}
             />) :
             ( <div className={`cardBackground red`}>
                 <div className={`card f grey`}>

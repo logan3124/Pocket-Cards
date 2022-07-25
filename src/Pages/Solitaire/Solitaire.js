@@ -169,9 +169,13 @@ export const Solitaire = () => {
                 }))
                 if (column != 0) {
                     setColumns((prev) => {
+                        let endCard = ({
+                            ...prev[`column${column}`][[`column${column}`].length - 1],
+                            back: false
+                        })
                         return ({
                             ...prev,
-                            [`column${column}`]: prev[`column${column}`].slice(0, -1)
+                            [`column${column}`]: [...prev[`column${column}`].slice(0, -2), endCard]
                         })
                     })
                 } else {
