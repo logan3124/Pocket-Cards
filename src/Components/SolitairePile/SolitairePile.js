@@ -5,17 +5,17 @@ import { Card } from '../Card/Card.js';
 export const SolitairePile = (props) => {
     return (
         <div className='pile'>
-            {(props.cards.length > 0)? 
+            {(props.pile.cards.length > 0)? 
             (<Card
                 theme='red' 
-                rank={props.cards[props.cards.length - 1].rank} 
-                suit={props.cards[props.cards.length - 1].suit} 
+                rank={props.pile.cards[props.pile.cards.length - 1].rank} 
+                suit={props.pile.cards[props.pile.cards.length - 1].suit} 
                 back={false}
-                color={props.cards[props.cards.length - 1].color}
+                color={props.pile.cards[props.pile.cards.length - 1].color}
             />) :
             ( <div className={`cardBackground red`}>
                 <div className={`card f grey`}>
-                    <p className='suit'>{props.suit}</p>
+                    <p className='suit'>{props.pile.suit}</p>
                 </div>
             </div> )
             }
@@ -24,6 +24,5 @@ export const SolitairePile = (props) => {
 }
 
 SolitairePile.propTypes = {
-    suit: PropTypes.string.isRequired,
-    cards: PropTypes.array.isRequired
+    pile: PropTypes.object.isRequired
 }

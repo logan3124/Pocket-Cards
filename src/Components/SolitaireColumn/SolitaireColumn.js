@@ -24,6 +24,7 @@ export const SolitaireColumn = (props) => {
                     color={card.color}
                     offset={index}
                     handleDrag={(event) => props.cardDrag(index)}
+                    handleClick={(event) => props.clickCard(index)}
                 />)
             })}
         </div>
@@ -31,5 +32,6 @@ export const SolitaireColumn = (props) => {
 }
 
 SolitaireColumn.propTypes = {
-    cards: PropTypes.array.isRequired
+    cards: PropTypes.array.isRequired,
+    clickCard: PropTypes.func.isRequired
 }
