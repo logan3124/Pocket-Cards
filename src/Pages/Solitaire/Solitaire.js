@@ -47,6 +47,8 @@ export const Solitaire = () => {
 
     const [time, setTime] = useState(0);
 
+    const [moves, setMoves] = useState(0);
+
     const handleStartClick = () => {
         let newColumns = {
             column1: [],
@@ -147,6 +149,7 @@ export const Solitaire = () => {
                     })
                 })
             }
+            setMoves((prev) => prev + 1);
         }
         setDraggedCard(({}))
     }
@@ -190,6 +193,7 @@ export const Solitaire = () => {
                         })
                     })
                 }
+                setMoves((prev) => prev + 1);
             }
         }
     }
@@ -219,7 +223,7 @@ export const Solitaire = () => {
                     <div className='playerRow'>
                         <Player theme='red' />
                         <p>Time: {time}</p>
-                        <p>Moves: 0</p>
+                        <p>Moves: {moves}</p>
                         <p>Score: 0</p>
                     </div>
                     <div className='solitaireRow'>
