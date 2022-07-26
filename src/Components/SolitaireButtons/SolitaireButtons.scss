@@ -2,8 +2,10 @@
 
 .solitaireButtons {
     display: flex;
+    position: absolute;
+    width: 70vw;
+    bottom: 5rem;
     justify-content: space-around;
-    width: 100vw;
     button {
         width: 10rem;
         height: 3rem;

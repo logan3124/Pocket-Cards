@@ -1,11 +1,12 @@
 
 .solitaireDeck {
     width: 20vw;
-    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    position: absolute;
+    bottom: 4rem;
     .pile {
         height: 12rem;
         width: 10rem;

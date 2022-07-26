@@ -244,14 +244,17 @@ export const Solitaire = () => {
                         <Player theme='red' />
                         <SolitaireDeck clickCard={() => clickCard(0, 0)} remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     </div>
-                    <div className='solitaireRow'>
-                        <SolitaireColumn clickCard={(index) => clickCard(1, index)} cardDrag={(index) => cardDrag(1, index)} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(2, index)} cardDrag={(index) => cardDrag(2, index)} cardDrop={()=>{cardDrop(2)}} cards={columns.column2}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(3, index)} cardDrag={(index) => cardDrag(3, index)} cardDrop={()=>{cardDrop(3)}} cards={columns.column3}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(4, index)} cardDrag={(index) => cardDrag(4, index)} cardDrop={()=>{cardDrop(4)}} cards={columns.column4}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(5, index)} cardDrag={(index) => cardDrag(5, index)} cardDrop={()=>{cardDrop(5)}} cards={columns.column5}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(6, index)} cardDrag={(index) => cardDrag(6, index)} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
-                        <SolitaireColumn clickCard={(index) => clickCard(7, index)} cardDrag={(index) => cardDrag(7, index)} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
+                    <div className='middle'>
+                        <div className='solitaireRow'>
+                            <SolitaireColumn clickCard={(index) => clickCard(1, index)} cardDrag={(index) => cardDrag(1, index)} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(2, index)} cardDrag={(index) => cardDrag(2, index)} cardDrop={()=>{cardDrop(2)}} cards={columns.column2}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(3, index)} cardDrag={(index) => cardDrag(3, index)} cardDrop={()=>{cardDrop(3)}} cards={columns.column3}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(4, index)} cardDrag={(index) => cardDrag(4, index)} cardDrop={()=>{cardDrop(4)}} cards={columns.column4}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(5, index)} cardDrag={(index) => cardDrag(5, index)} cardDrop={()=>{cardDrop(5)}} cards={columns.column5}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(6, index)} cardDrag={(index) => cardDrag(6, index)} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
+                            <SolitaireColumn clickCard={(index) => clickCard(7, index)} cardDrag={(index) => cardDrag(7, index)} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
+                        </div>
+                        <SolitaireButtons handleStartClick={handleStartClick}/>
                     </div>
                     <div className='pileRow'>
                         <SolitairePile pile={endPile.pile1}/>
@@ -261,9 +264,6 @@ export const Solitaire = () => {
                     </div>
                 </div>
             </main>
-            <footer>
-                <SolitaireButtons handleStartClick={handleStartClick}/>
-            </footer>
         </div>
     )
 }
