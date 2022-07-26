@@ -29,9 +29,9 @@
             font-size: 60px;
             color: $primary-color;
         }
-        .bet, .funds {
+        .stat {
             height: 3rem;
-            width: 4rem;
+            width: 7rem;
             border-radius: 10px;
             color: white;
             display: flex;
@@ -44,28 +44,15 @@
     }
     .solitaireDisplay {
         width: 100vw;
+        height: 80vh;
         display: flex;
         justify-content: space-around;
-        margin-bottom: 7rem;
     }
     .playerRow {
         width: 15vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        p {
-            height: 2.5rem;
-            width: 10rem;
-            color: white;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $primary-color;
-        }
     }
     .solitaireRow {
         justify-self: center;
@@ -84,6 +71,7 @@
             width: 40vw;
             height: auto;
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
         }
     }

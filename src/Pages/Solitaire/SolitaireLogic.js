@@ -75,6 +75,10 @@ shuffleDeck();
 shuffleDeck();
 shuffleDeck();
 shuffleDeck();
+shuffleDeck();
+shuffleDeck();
+shuffleDeck();
+shuffleDeck();
 
 export const dealCard = () => {
     return solitaireDeck.pop();

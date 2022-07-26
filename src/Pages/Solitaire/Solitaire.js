@@ -99,6 +99,18 @@ export const Solitaire = () => {
         }))
     }
 
+    const displayTime = () => {
+        let hours = Math.floor('' + (time / 60));  
+        let minutes = '' + (time % 60);
+        if (hours < 10) {
+            hours = '0' + hours
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes
+        }
+        return hours + ":" + minutes;
+    }
+
     const cardDrop = (column) => {
         console.log(remainingDeck)
         let endcard 
@@ -113,11 +125,11 @@ export const Solitaire = () => {
         console.log(cards)
         if (((cards[0].value + 1 == endcard.value) && (cards[0].color != endcard.color)) || ((columns[`column${column}`].length == 0) && (cards[0].rank == 'K'))) {
             if (draggedCard.column != 0) {
-                if (draggedCard.index == 0) {
+                if (draggedCard.index === 0) {
                     setColumns((prev) => {
                         return ({
                             ...prev,
-                            [`column${column}`]: [...prev[`column${column}`], {...cards[0]}],
+                            [`column${column}`]: [...prev[`column${column}`], ...cards],
                             [`column${draggedCard.column}`]: []
                         })
                     })
@@ -173,7 +185,15 @@ export const Solitaire = () => {
                         cards: [card, ...prev[pile].cards]
                     })
                 }))
-                if (column != 0) {
+                if (column != 0 && columns[`column${column}`].length === 1) {
+                    setColumns((prev) => {
+                        return ({
+                            ...prev,
+                            [`column${column}`]: []
+                        })
+                    })
+                }
+                else if (column != 0 && columns[`column${column}`].length > 1) {
                     let endCard = ({
                         ...columns[`column${column}`][columns[`column${column}`].length - 2],
                         back: false
@@ -213,18 +233,16 @@ export const Solitaire = () => {
         <div className='solitaire'>
             <header className='top'>
                 <div className='menu'>Menu</div>
-                <div className='bet'>{0}</div>
+                <div className='stat'>{displayTime()}</div>
                 <h1>Pocket Cards</h1>
-                <div className='funds'>{0}</div>
+                <div className='stat'>Moves: {moves}</div>
                 <div className='theme'>Theme</div>
             </header>
             <main>
                 <div className='solitaireDisplay'>
                     <div className='playerRow'>
                         <Player theme='red' />
-                        <p>Time: {time}</p>
-                        <p>Moves: {moves}</p>
-                        <p>Score: 0</p>
+                        <SolitaireDeck clickCard={() => clickCard(0, 0)} remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     </div>
                     <div className='solitaireRow'>
                         <SolitaireColumn clickCard={(index) => clickCard(1, index)} cardDrag={(index) => cardDrag(1, index)} cardDrop={()=>{cardDrop(1)}} cards={columns.column1}/>
@@ -235,9 +253,6 @@ export const Solitaire = () => {
                         <SolitaireColumn clickCard={(index) => clickCard(6, index)} cardDrag={(index) => cardDrag(6, index)} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
                         <SolitaireColumn clickCard={(index) => clickCard(7, index)} cardDrag={(index) => cardDrag(7, index)} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
                     </div>
-                </div>
-                <div className='solitaireCards'>
-                    <SolitaireDeck clickCard={() => clickCard(0, 0)} remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
                         <SolitairePile pile={endPile.pile1}/>
                         <SolitairePile pile={endPile.pile2}/>
