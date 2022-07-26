@@ -49,6 +49,22 @@ export const Solitaire = () => {
 
     const [moves, setMoves] = useState(0);
 
+    const checkWin = () => {
+        if (remainingDeck.pile1.length === 0 && remainingDeck.pile2 === 0) {
+            let ordered = true
+            for (const column in columns) {
+                for (const card in columns[`columns${column}`]) {
+                    if (card.back = true) {
+                        ordered = false
+                    }
+                }
+            }
+            if (ordered === true) {
+                throw alert('Won game!')
+            }
+        }
+    }
+
     const handleStartClick = () => {
         let newColumns = {
             column1: [],
@@ -163,6 +179,7 @@ export const Solitaire = () => {
             }
             setMoves((prev) => prev + 1);
         }
+        checkWin();
         setDraggedCard(({}))
     }
 
@@ -216,6 +233,7 @@ export const Solitaire = () => {
                 setMoves((prev) => prev + 1);
             }
         }
+        checkWin();
     }
 
     const resetPile = () => {
