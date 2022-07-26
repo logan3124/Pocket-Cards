@@ -10,8 +10,8 @@ export const Card = (props) => {
         }
     } else {
         style = {
-            position: 'relative',
-            bottom: `${7 * props.offset}rem`
+            position: 'absolute',
+            top: `${2.75 * props.offset}rem`
         }
     }
 

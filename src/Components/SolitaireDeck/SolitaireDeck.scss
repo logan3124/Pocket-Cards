@@ -1,6 +1,5 @@
 
 .solitaireDeck {
-    border: 1px solid black;
     width: 20vw;
     height: auto;
     display: flex;
@@ -8,7 +7,6 @@
     .pile {
         height: 12rem;
         width: 10rem;
-        border: 1px solid black;
         display: flex;
         justify-content: center;
         align-items: center;
