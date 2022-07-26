@@ -27,6 +27,7 @@ export const SolitaireDeck = (props) => {
                     back={false}
                     color={props.remainingDeck.pile2[0].color}
                     handleDrag={(event) => props.deckDrag(0)}
+                    handleClick={(event) => props.clickCard()}
                 /> :
                 <div className={`cardBackground red`}>
                     <div className={`card f grey`}></div>

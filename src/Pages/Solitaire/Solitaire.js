@@ -98,21 +98,24 @@ export const Solitaire = () => {
     }
 
     const cardDrop = (column) => {
-        let endcard = columns[`column${column}`][columns[`column${column}`].length - 1]
-        let card
+        console.log(remainingDeck)
+        let endcard 
+        endcard = columns[`column${column}`].length > 0 ? columns[`column${column}`][columns[`column${column}`].length - 1] : {value: -1, color: 'N/A'}
+        let cards
         console.log(draggedCard.column)
         if (draggedCard.column != 0) {
-            card = columns[`column${draggedCard.column}`][draggedCard.index]
+            cards = columns[`column${draggedCard.column}`].slice(draggedCard.index)
         } else {
-            card = remainingDeck.pile2[draggedCard.index]
+            cards = [remainingDeck.pile2[0]]
         }
-        if ((card.value + 1 == endcard.value) && (card.color != endcard.color)) {
+        console.log(cards)
+        if (((cards[0].value + 1 == endcard.value) && (cards[0].color != endcard.color)) || ((columns[`column${column}`].length == 0) && (cards[0].rank == 'K'))) {
             if (draggedCard.column != 0) {
                 if (draggedCard.index == 0) {
                     setColumns((prev) => {
                         return ({
                             ...prev,
-                            [`column${column}`]: [...prev[`column${column}`], {...card}],
+                            [`column${column}`]: [...prev[`column${column}`], {...cards[0]}],
                             [`column${draggedCard.column}`]: []
                         })
                     })
@@ -125,7 +128,7 @@ export const Solitaire = () => {
                     setColumns((prev) => {
                         return ({
                             ...prev,
-                            [`column${column}`]: [...prev[`column${column}`], {...card}],
+                            [`column${column}`]: [...prev[`column${column}`], ...cards],
                             [`column${draggedCard.column}`]: [...list1, lastcard]
                         })
                     })
@@ -134,7 +137,7 @@ export const Solitaire = () => {
                 setColumns((prev) => {
                     return ({
                         ...prev,
-                        [`column${column}`]: [...prev[`column${column}`], {...card, back: false}]
+                        [`column${column}`]: [...prev[`column${column}`], {...cards[0], back: false}]
                     })
                 })
                 setRemainingDeck((prev) => {
@@ -150,7 +153,7 @@ export const Solitaire = () => {
 
     const clickCard = (column, index) => {
         let card
-        if (draggedCard.column != 0) {
+        if (column !== 0) {
             card = columns[`column${column}`][index]
         } else {
             card = remainingDeck.pile2[0]
@@ -159,7 +162,7 @@ export const Solitaire = () => {
         for (const pile in endPile) {
             let endPileValue = (endPile[pile].cards.length != 0 ? endPile[pile].cards[0].value : 0)
             let endPileSuit = endPile[pile].suit
-            if (card.value - 1 ==  endPileValue && card.suit == endPileSuit) {
+            if (card.value - 1 ===  endPileValue && card.suit === endPileSuit) {
                 setEndPile((prev) => ({
                     ...prev,
                     [pile]: ({
@@ -168,11 +171,12 @@ export const Solitaire = () => {
                     })
                 }))
                 if (column != 0) {
+                    let endCard = ({
+                        ...columns[`column${column}`][columns[`column${column}`].length - 2],
+                        back: false
+                    })
+                    console.log(columns[`column${column}`][[`column${column}`].length - 2])
                     setColumns((prev) => {
-                        let endCard = ({
-                            ...prev[`column${column}`][[`column${column}`].length - 1],
-                            back: false
-                        })
                         return ({
                             ...prev,
                             [`column${column}`]: [...prev[`column${column}`].slice(0, -2), endCard]
@@ -229,7 +233,7 @@ export const Solitaire = () => {
                     </div>
                 </div>
                 <div className='solitaireCards'>
-                    <SolitaireDeck clickCard={(index) => clickCard(0, 0)} remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
+                    <SolitaireDeck clickCard={() => clickCard(0, 0)} remainingDeck={remainingDeck} resetPile={resetPile} deckDrag={deckDrag} handleDeckClick={handleDeckClick}/>
                     <div className='pileRow'>
                         <SolitairePile pile={endPile.pile1}/>
                         <SolitairePile pile={endPile.pile2}/>
