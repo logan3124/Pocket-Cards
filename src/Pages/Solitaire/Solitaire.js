@@ -56,18 +56,20 @@ export const Solitaire = () => {
         checkWin();
     }, [remainingDeck, columns])
 
+    //Need to fix
     const checkWin = () => {
-        if (remainingDeck.pile1.length === 0 && remainingDeck.pile2.length === 0) {
+        if (remainingDeck.pile1.length === 0 && remainingDeck.pile2.length === 0 && stage === 'game') {
             let ordered = true
             for (const column in columns) {
-                for (const card in columns[`columns${column}`]) {
-                    console.log(card)
+                for (const card in columns[column]) {
                     if (card.back === true) {
                         ordered = false
                     }
                 }
             }
-            console.log('win')
+            if (ordered === true) {
+                console.log('win')
+            }
         }
     }
 
@@ -144,17 +146,14 @@ export const Solitaire = () => {
     }
 
     const cardDrop = (column) => {
-        console.log(remainingDeck)
         let endcard 
         endcard = columns[`column${column}`].length > 0 ? columns[`column${column}`][columns[`column${column}`].length - 1] : {value: -1, color: 'N/A'}
         let cards
-        console.log(draggedCard.column)
         if (draggedCard.column != 0) {
             cards = columns[`column${draggedCard.column}`].slice(draggedCard.index)
         } else {
             cards = [remainingDeck.pile2[0]]
         }
-        console.log(cards)
         if (((cards[0].value + 1 == endcard.value) && (cards[0].color != endcard.color)) || ((columns[`column${column}`].length == 0) && (cards[0].rank == 'K'))) {
             if (draggedCard.column != 0) {
                 if (draggedCard.index === 0) {
@@ -259,6 +258,17 @@ export const Solitaire = () => {
                 })
                 break;
             case ('cardDrag'):
+                setColumns((prev) => {
+                    let endCard = {
+                        ...prev[`column${prevMove.prevColumn}`][prev[`column${prevMove.prevColumn}`].length - 1],
+                        back: true
+                    }
+                    return ({
+                        ...prev,
+                        [`column${prevMove.prevColumn}`]: [...prev[`column${prevMove.prevColumn}`].slice(0, -1), endCard, ...prev[`column${prevMove.column}`].slice(prevMove.index)],
+                        [`column${prevMove.column}`]: prev[`column${prevMove.column}`].slice(0, prevMove.index)
+                    })
+                })
                 break;
             case ('cardClick'):
                 setColumns((prev) => {
@@ -304,6 +314,7 @@ export const Solitaire = () => {
         setPrevMoves((prev) => {
             return prev.slice(0, -1)
         })
+        setMoves((prev) => prev > 0 ? prev - 1 : 0)
     }
 
     const clickCard = (column, index) => {
