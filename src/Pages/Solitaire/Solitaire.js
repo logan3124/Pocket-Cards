@@ -3,6 +3,7 @@ import { SolitaireColumn } from '../../Components/SolitaireColumn/SolitaireColum
 import { SolitaireDeck } from '../../Components/SolitaireDeck/SolitaireDeck';
 import { SolitairePile } from '../../Components/SolitairePile/SolitairePile';
 import { SolitaireButtons } from '../../Components/SolitaireButtons/SolitaireButtons';
+import { SolitaireGameButtons } from '../../Components/SolitaireGameButtons/SolitaireGameButtons';
 import { solitaireDeck, dealCard, resetDeck, shuffleDeck } from './SolitaireLogic.js';
 import { Player } from '../../Components/Player/Player';
 import { useState, useEffect } from 'react';
@@ -49,6 +50,8 @@ export const Solitaire = () => {
 
     const [moves, setMoves] = useState(0);
 
+    const [stage, setStage] = useState('start');
+
     useEffect(() => {
         checkWin();
     }, [remainingDeck, columns])
@@ -89,6 +92,7 @@ export const Solitaire = () => {
         console.log(newColumns)
         setColumns(({...newColumns}));
         setRemainingDeck(({pile1: solitaireDeck.slice(), pile2: []}));
+        setStage('game');
         intervalId = setInterval(() => {
             setTime((prev) => prev + 1)
           }, 1000)
@@ -275,7 +279,9 @@ export const Solitaire = () => {
                             <SolitaireColumn clickCard={(index) => clickCard(6, index)} cardDrag={(index) => cardDrag(6, index)} cardDrop={()=>{cardDrop(6)}} cards={columns.column6}/>
                             <SolitaireColumn clickCard={(index) => clickCard(7, index)} cardDrag={(index) => cardDrag(7, index)} cardDrop={()=>{cardDrop(7)}} cards={columns.column7}/>
                         </div>
-                        <SolitaireButtons handleStartClick={handleStartClick}/>
+                        {stage === 'start' ? 
+                        <SolitaireButtons handleStartClick={handleStartClick}/> : 
+                        <SolitaireGameButtons />}
                     </div>
                     <div className='pileRow'>
                         <SolitairePile pile={endPile.pile1}/>
