@@ -234,8 +234,7 @@ export const Solitaire = () => {
     const [prevMoves, setPrevMoves] = useState([])
 
     const handleUndo = () => {
-        let prevMove = prevMoves[prevMoves.length - 1]
-        console.log(prevMoves)
+        let prevMove = prevMoves.length > 0 ? prevMoves[prevMoves.length - 1] : {type: 'N/A'}
         switch (prevMove.type) {
             case ('deckClick'):
                 setRemainingDeck((prev) => {
@@ -250,8 +249,44 @@ export const Solitaire = () => {
             case ('cardDrag'):
                 break;
             case ('cardClick'):
+                setColumns((prev) => {
+                    let endCard = ({
+                        ...prev[`column${prevMove.prevColumn}`][prev[`column${prevMove.prevColumn}`].length - 1],
+                        back: true
+                    })
+                    return({
+                        ...prev,
+                        [`column${prevMove.prevColumn}`]: [...prev[`column${prevMove.prevColumn}`].slice(0, -1), endCard, {...endPile[prevMove.pile].cards[0]}]
+                    })
+                })
+                setEndPile((prev) => {
+                    return ({
+                        ...prev,
+                        [prevMove.pile]: ({
+                            suit: prev[prevMove.pile].suit,
+                            cards: prev[prevMove.pile].cards.slice(1)
+                        })
+                    })
+                })
                 break;
             case ('deckCardClick'):
+                setRemainingDeck((prev) => {
+                    return ({
+                        ...prev,
+                        pile2: [{...endPile[prevMove.pile].cards[0]}, ...prev.pile2]
+                    })
+                })
+                setEndPile((prev) => {
+                    return ({
+                        ...prev,
+                        [prevMove.pile]: ({
+                            suit: prev[prevMove.pile].suit,
+                            cards: prev[prevMove.pile].cards.slice(1)
+                        })
+                    })
+                })
+                break;
+            default:
                 break;
         }
         setPrevMoves((prev) => {
@@ -278,16 +313,6 @@ export const Solitaire = () => {
                         cards: [card, ...prev[pile].cards]
                     })
                 }))
-                setPrevMoves((prev) => {
-                    return ([
-                        ...prev,
-                        ({
-                            type: 'cardclick',
-                            prevColumn: column,
-                            pile: pile
-                        })
-                    ])
-                })
                 if (column != 0 && columns[`column${column}`].length === 1) {
                     setColumns((prev) => {
                         return ({
@@ -299,7 +324,7 @@ export const Solitaire = () => {
                         return ([
                             ...prev,
                             ({
-                                type: 'cardclick',
+                                type: 'cardClick',
                                 prevColumn: column,
                                 pile: pile
                             })
@@ -317,6 +342,16 @@ export const Solitaire = () => {
                             ...prev,
                             [`column${column}`]: [...prev[`column${column}`].slice(0, -2), endCard]
                         })
+                    })
+                    setPrevMoves((prev) => {
+                        return ([
+                            ...prev,
+                            ({
+                                type: 'cardClick',
+                                prevColumn: column,
+                                pile: pile
+                            })
+                        ])
                     })
                 } else {
                     setRemainingDeck((prev) => {
