@@ -49,19 +49,22 @@ export const Solitaire = () => {
 
     const [moves, setMoves] = useState(0);
 
+    useEffect(() => {
+        checkWin();
+    }, [remainingDeck, columns])
+
     const checkWin = () => {
-        if (remainingDeck.pile1.length === 0 && remainingDeck.pile2 === 0) {
+        if (remainingDeck.pile1.length === 0 && remainingDeck.pile2.length === 0) {
             let ordered = true
             for (const column in columns) {
                 for (const card in columns[`columns${column}`]) {
-                    if (card.back = true) {
+                    console.log(card)
+                    if (card.back === true) {
                         ordered = false
                     }
                 }
             }
-            if (ordered === true) {
-                throw alert('Won game!')
-            }
+            console.log('win')
         }
     }
 
