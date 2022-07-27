@@ -1,10 +1,10 @@
 import './SolitaireGameButtons.scss';
 
-export const SolitaireGameButtons = () => {
+export const SolitaireGameButtons = (props) => {
     return (
         <div>
             <div className='solitaireButtons'>
-                <button>
+                <button onClick={props.handleUndo}>
                     Undo
                 </button>
                 <button>
