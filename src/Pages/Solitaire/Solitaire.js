@@ -245,6 +245,18 @@ export const Solitaire = () => {
                 })
                 break;
             case ('deckDrag'):
+                setRemainingDeck((prev) => {
+                    return ({
+                        ...prev,
+                        pile2: [{...columns[`column${prevMove.column}`][prevMove.index]}, ...prev.pile2]
+                    })
+                })
+                setColumns((prev) => {
+                    return ({
+                        ...prev, 
+                        [`column${prevMove.column}`]: prev[[`column${prevMove.column}`]].slice(0, -1)
+                    })
+                })
                 break;
             case ('cardDrag'):
                 break;
