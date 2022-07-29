@@ -17,17 +17,18 @@ export const HomePage = () => {
     const generateCards = () => {
         let cards = []
         let ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-        let suits = ['♥', '♦', '♠', '♣']
         let colors = ['Black', 'Red']
         let key = 0;
+        let suits = ['♥', '♦', '♠', '♣']
         for (let j = 0; j < 7; j++) {
             for (let i = 0; i < 14; i++) {
-                let back = ((j + i) % 2 === 0)
+                let suit = suits[Math.round(Math.random() * 4)];
+                let rank = ranks[Math.round(Math.random() * 13)]
                 cards.push(<Card 
                 key={key}
                 theme='red'
-                rank={ranks[Math.round(Math.random() * 13)]}
-                suit={suits[Math.round(Math.random() * 4)]}
+                rank={rank ? rank : '4'}
+                suit={suit ? suit : '♥'}
                 back={false}
                 color={colors[Math.round(Math.random() * 2)]}
                 offX={j * 15.5}
@@ -49,36 +50,40 @@ export const HomePage = () => {
                     <button onClick={handleClick('guest')} className={form === 'guest' ? 'active' : ''}>Guest</button>
                 </div>
                 {form === 'login' ? 
-                <div className='inputs'>
-                    <input placeholder='Username'>
-                    </input>
-                    <input placeholder='Password'>
-                    </input>
+                <form className='inputs'>
+                    <input placeholder='Username' required />
+                    <input placeholder='Password' required />
                     <div className='options'>
                         <div>Login with Google<img src={google}/></div>
                         <div>Login with Facebook<img src={facebook}/></div>
                     </div>
                     <input className="submit" type='submit' value='Submit' />
-                </div> : (form === 'signup') ?
-                <div className='inputs'>
-                    <input placeholder='Email'>
-                    </input>
+                </form> : (form === 'signup') ?
+                <form className='inputs'>
+                    <div className='options'>
+                        <input placeholder="First Name"></input>
+                        <input placeholder="Last Name"></input>
+                    </div>
                     <input placeholder='Username'>
                     </input>
                     <input placeholder='Password'>
                     </input>
-                    <input placeholder='Confirm Password' value="">
+                    <input placeholder='Confirm Password'>
                     </input>
                     <div className='options'>
                         <div>SignUp with Google<img src={google}/></div>
                         <div>SignUp with Facebook<img src={facebook}/></div>
                     </div>
                     <input className="submit" type='submit' value='Submit' />
-                </div> : 
-                <div className='inputs'>
-                    <input></input>
-                    <input></input>
-                </div>}
+                </form> : 
+                <form className='inputs'>
+                    <div className='options'>
+                        <input placeholder="First Name" required />
+                        <input placeholder="Last Name"/>
+                    </div>
+                    <input placeholder='Username' required/>
+                    <input className="submit" type='submit' value='Submit' />
+                </form>}
             </div>
         </div>
     )
