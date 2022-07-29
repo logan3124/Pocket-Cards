@@ -19,16 +19,21 @@ export const HomePage = () => {
         let ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
         let suits = ['♥', '♦', '♠', '♣']
         let colors = ['Black', 'Red']
-        for (let i = 0; i < 50; i++) {
-            cards.push(<Card 
-            key={i}
-            theme='red'
-            rank={ranks[Math.round(Math.random() * ranks.length)]}
-            suit={suits[Math.round(Math.random() * suits.length)]}
-            back={false}
-            color={colors[Math.round(Math.random() * colors.length)]}
-            offX={Math.round(100 * Math.random())}
-            offY={Math.round(100 * Math.random())}/>)
+        let key = 0;
+        for (let j = 0; j < 7; j++) {
+            for (let i = 0; i < 14; i++) {
+                let back = ((j + i) % 2 === 0)
+                cards.push(<Card 
+                key={key}
+                theme='red'
+                rank={ranks[Math.round(Math.random() * 13)]}
+                suit={suits[Math.round(Math.random() * 4)]}
+                back={false}
+                color={colors[Math.round(Math.random() * 2)]}
+                offX={j * 15.5}
+                offY={i * 7.5}/>)
+                key++
+            }
         }
         return cards
     }
@@ -53,10 +58,22 @@ export const HomePage = () => {
                         <div>Login with Google<img src={google}/></div>
                         <div>Login with Facebook<img src={facebook}/></div>
                     </div>
+                    <input className="submit" type='submit' value='Submit' />
                 </div> : (form === 'signup') ?
                 <div className='inputs'>
-                    <input></input>
-                    <input></input>
+                    <input placeholder='Email'>
+                    </input>
+                    <input placeholder='Username'>
+                    </input>
+                    <input placeholder='Password'>
+                    </input>
+                    <input placeholder='Confirm Password' value="">
+                    </input>
+                    <div className='options'>
+                        <div>SignUp with Google<img src={google}/></div>
+                        <div>SignUp with Facebook<img src={facebook}/></div>
+                    </div>
+                    <input className="submit" type='submit' value='Submit' />
                 </div> : 
                 <div className='inputs'>
                     <input></input>

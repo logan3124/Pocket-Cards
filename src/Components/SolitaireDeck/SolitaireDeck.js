@@ -14,6 +14,7 @@ export const SolitaireDeck = (props) => {
                     back={true}
                     color={props.remainingDeck.pile1[0].color}
                     handleDeckClick={props.handleDeckClick}
+                    offset={0}
                 /> :
                 <div onClick={props.resetPile} className={`cardBackground red`}>
                     <div className={`card f grey`}></div>

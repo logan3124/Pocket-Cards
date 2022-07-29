@@ -3,23 +3,28 @@ import PropTypes from 'prop-types';
 
 export const Card = (props) => {
     let style;
+    let newstyle = {};
     if (props.pos !== undefined) {
         style = {
             position: 'relative',
             right: `${2.25 * props.pos}rem`
         }
-    } else if(props.pos !== undefined) {
+    } else if(props.offset !== undefined) {
         style = {
             position: 'absolute',
             top: `${2.75 * props.offset}rem`
         }
-    } else {
+    } else if (props.offX !== undefined) {
         style = {
             position: 'absolute',
             top: `${props.offX}%`,
             left: `${props.offY}%`,
             transform: `rotate(${Math.round(Math.random() * 360)}deg)`,
-            background: 'transparent'
+            background: 'transparent',
+            zIndex: Math.round(Math.random() * 5)
+        }
+        newstyle = {
+            boxShadow: '1px 1px 6px lightgrey'
         }
     }
 
@@ -29,7 +34,7 @@ export const Card = (props) => {
             <div className='card b'>
                 <p className='back'>X</p>
             </div> :
-            <div className={`card f ${props.color}`} draggable='true' onDragStart={props.handleDrag}>
+            <div className={`card f ${props.color}`} draggable='true' onDragStart={props.handleDrag} style={newstyle}>
                 <p className='left'>{props.rank}</p>
                 <p className='suit'>{props.suit}</p>
                 <p className='right'>{props.rank}</p>
