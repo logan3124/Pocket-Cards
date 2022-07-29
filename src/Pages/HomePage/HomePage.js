@@ -41,6 +41,21 @@ export const HomePage = () => {
                     <button onClick={handleClick('signup')} className={form === 'signup' ? 'active' : ''}>SignUp</button>
                     <button onClick={handleClick('guest')} className={form === 'guest' ? 'active' : ''}>Guest</button>
                 </div>
+                {form === 'login' ? 
+                <div>
+                    <input placeholder='Username'>
+                    </input>
+                    <input placeholder='Password'>
+                    </input>
+                </div> : (form === 'signup') ?
+                <div>
+                    <input></input>
+                    <input></input>
+                </div> : 
+                <div>
+                    <input></input>
+                    <input></input>
+                </div>}
             </div>
         </div>
     )
