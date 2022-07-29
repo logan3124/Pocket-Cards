@@ -1,6 +1,8 @@
 import './HomePage.scss';
 import { Link } from 'react-router-dom';
 import { Card } from '../../Components/Card/Card';
+import google from '../../images/google.svg';
+import facebook from '../../images/facebook.svg';
 import { useState } from 'react';
 
 export const HomePage = () => {
@@ -48,8 +50,8 @@ export const HomePage = () => {
                     <input placeholder='Password'>
                     </input>
                     <div className='options'>
-                        <div>Login with Google</div>
-                        <div>Login with Facebook</div>
+                        <div>Login with Google<img src={google}/></div>
+                        <div>Login with Facebook<img src={facebook}/></div>
                     </div>
                 </div> : (form === 'signup') ?
                 <div className='inputs'>
