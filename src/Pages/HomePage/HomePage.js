@@ -42,17 +42,21 @@ export const HomePage = () => {
                     <button onClick={handleClick('guest')} className={form === 'guest' ? 'active' : ''}>Guest</button>
                 </div>
                 {form === 'login' ? 
-                <div>
+                <div className='inputs'>
                     <input placeholder='Username'>
                     </input>
                     <input placeholder='Password'>
                     </input>
+                    <div className='options'>
+                        <div>Login with Google</div>
+                        <div>Login with Facebook</div>
+                    </div>
                 </div> : (form === 'signup') ?
-                <div>
+                <div className='inputs'>
                     <input></input>
                     <input></input>
                 </div> : 
-                <div>
+                <div className='inputs'>
                     <input></input>
                     <input></input>
                 </div>}
