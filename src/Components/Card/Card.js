@@ -8,10 +8,18 @@ export const Card = (props) => {
             position: 'relative',
             right: `${2.25 * props.pos}rem`
         }
-    } else {
+    } else if(props.pos !== undefined) {
         style = {
             position: 'absolute',
             top: `${2.75 * props.offset}rem`
+        }
+    } else {
+        style = {
+            position: 'absolute',
+            top: `${props.offX}%`,
+            left: `${props.offY}%`,
+            transform: `rotate(${Math.round(Math.random() * 360)}deg)`,
+            background: 'transparent'
         }
     }
 
