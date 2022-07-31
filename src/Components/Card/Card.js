@@ -24,7 +24,8 @@ export const Card = (props) => {
             zIndex: Math.round(Math.random() * 5)
         }
         newstyle = {
-            boxShadow: '1px 1px 6px lightgrey'
+            //boxShadow: '1px 1px 6px lightgrey',
+            border: '1px solid lightgray'
         }
     }
 

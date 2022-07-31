@@ -9,99 +9,12 @@
     justify-content: center;
     align-items: center;
     z-index: 6;
-    .form {
-        border: 4px solid $tertiary-color;
-        border-radius: 10px;
-        background-color: $tertiary-color;
-        width: 40rem;
-        height: 40rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 7;
-        box-shadow: 1px 1px 5px gray;
-        h1 {
-            color: $primary-color;
-            font-size: 60px;
-            width: fit-content;
-        }
-        .buttonRow {
-            width: 30rem;
-            margin-bottom: 1rem;
-        }
-        button {
-            width: 10rem;
-            height: 3.5rem;
-            background-color: lightgray;
-            color: gray;
-            font-size: 20px;
-            border: 0px solid transparent;
-        }
-        .active {
-            background-color: $primary-color;
-            color: white;
-        }
-        .inputs {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input {
-            padding-left: 0.5rem;
-            font-size: 15px;
-            margin-bottom: 1rem;
-            width: 29.5rem;
-            height: 3rem;
-            border: 0px solid transparent;
-            border-radius: 3px;
-        }
-        .submit {
-            width: 30rem;
-            height: 3rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-evenly;
-            background-color: $primary-color;
-            color: white;
-            font-size: 17px;
-            border-radius: 3px;
-        }
-        .options {
-            display: flex;
-            justify-content: space-between;
-            width: 30rem;
-            margin-bottom: 1rem;
-            input {
-                width: 14rem;
-                height: 3rem;
-                margin-bottom: 0;
-            }
-            div {
-                width: 14.5rem;
-                height: 3rem;
-                display: inline-flex;
-                align-items: center;
-                justify-content: space-evenly;
-                background-color: $primary-color;
-                color: white;
-                font-size: 17px;
-                border-radius: 3px;
-            }
-            img {
-                width: 1.5rem;
-                height: 1.5rem;
-                background-color: white;
-                padding: 5px;
-                border-radius: 3px;
-            }
-        }
-    }
 }
 .home::after {
     position: absolute;
     background-color: black;
     content: '';
-    opacity: 0.2;
+    opacity: 0.15;
     width: 100vw;
     height: 100vh;
     z-index: 6;
