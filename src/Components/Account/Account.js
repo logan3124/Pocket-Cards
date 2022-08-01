@@ -1,5 +1,6 @@
 import './Account.scss'
 import { Player } from '../Player/Player';
+import { Achievement } from '../Achievment/Achievement';
 import { useState } from 'react';
 
 export const Account = () => {
@@ -25,7 +26,10 @@ export const Account = () => {
                         <button onClick={handleClick('stats')} className={form === 'stats' ? 'active last' : 'last'}>Stats</button>
                     </div>
                     <div className='area'>
-                        
+                        <Achievement name='Speed King' description='Win 10 games of solitatire in under 10 minutes'/>
+                        <Achievement name='Experienced' description='Play 100 games of solitaire'/>
+                        <Achievement />
+                        <Achievement />
                     </div>
                 </div>
             </div>
