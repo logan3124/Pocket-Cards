@@ -17,7 +17,20 @@ export const Account = () => {
             <h1>Pocket Cards</h1>
             <div className='info'>
                 <div className='one'>
-                    <Player theme='red'/>
+                    <div className='playerimage'>
+                        <Player theme='red'/>
+                    </div>
+                    <div className='status'>
+                        <div className='rank'>
+                            <div></div>
+                        </div>
+                        <div className='level'>
+                            <p>Level </p>
+                            <div className='progression'>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className='two'>
                     <div className='buttonRow'>

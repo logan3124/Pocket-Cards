@@ -3,7 +3,7 @@
 .achievement {
     width: 25rem;
     height: 10rem;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     border-radius: 5px;
     background-color: $primary-color;
     display: flex;
@@ -61,7 +61,7 @@
            width: 5rem;
            height: 5rem;
            border-radius: 50%;
-           opacity: 0.8;
+           opacity: 0.75;
            z-index: 7;
            content: '?';
            color: white;

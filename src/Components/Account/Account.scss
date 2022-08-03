@@ -30,6 +30,55 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: lightgray;
+            border-radius: 5px;
+            padding-top: 1rem;
+            .status {
+                width: 15rem;
+                height: 5rem;
+                display: flex;
+                background-color: $primary-color;
+                border-radius: 5px;
+                .rank {
+                    width: 5rem;
+                    height: 5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    div {
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 50%;
+                        background-color: #ffb256;
+                        //border: 0.25rem solid #ff933b;
+                    }
+                }
+                .level {
+                    width: 10rem;
+                    height: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    p {
+                        color: white;
+                        font-size: 25px;
+                        margin: 0;
+                    }
+                    .progression {
+                        width: 9rem;
+                        height: 2rem;
+                        background-color: lightgray;
+                        border-radius: 5px;
+                        margin: 0;
+                        div {
+                            width: 5rem;
+                            height: 2rem;
+                            background-color: #ffb256;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
         }
         .two {
             width: 35rem;
@@ -64,11 +113,12 @@
                 }
             }
             .area {
-                width: 30rem;
+                width: 28rem;
                 height: 30rem;
                 background-color: lightgray;
                 border-radius: 5px;
                 overflow: scroll;
+                border: 1rem solid lightgray;
             }
         }
     }
