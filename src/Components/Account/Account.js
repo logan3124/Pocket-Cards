@@ -1,4 +1,5 @@
 import './Account.scss'
+import edit from '../../images/edit3.svg';
 import { Player } from '../Player/Player';
 import { Achievement } from '../Achievment/Achievement';
 import { useState } from 'react';
@@ -19,6 +20,9 @@ export const Account = () => {
                 <div className='one'>
                     <div className='playerimage'>
                         <Player theme='red'/>
+                        <div className='edit'>
+                            <img src={edit} />
+                        </div>
                     </div>
                     <div className='status'>
                         <div className='rank'>
