@@ -26,7 +26,12 @@ export const Account = () => {
                     </div>
                     <div className='status'>
                         <div className='rank'>
-                            <div></div>
+                            <div>
+                                {/* &#9650; */}
+                                {/* &#9751; */}
+                                {/* &#9733; */}
+                                &#9830;
+                            </div>
                         </div>
                         <div className='level'>
                             <p>Level </p>

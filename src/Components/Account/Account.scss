@@ -73,7 +73,18 @@
                         width: 4rem;
                         height: 4rem;
                         border-radius: 50%;
-                        background-color: #ffb256;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 50px;
+                        //background-color: #ffb256;
+                        //color: #ff933b;
+                        //background-color: #f9f9f9;
+                        //color: #e0e0e0;
+                        //background-color: #fecd40;
+                        //color: #ffb001;
+                        background-color: #79d3fe;
+                        color: #0086ff;
                         //border: 0.25rem solid #ff933b;
                     }
                 }
@@ -97,7 +108,10 @@
                         div {
                             width: 5rem;
                             height: 2rem;
-                            background-color: #ffb256;
+                            //background-color: #ffb256;
+                            //background-color: #f9f9f9;
+                            //background-color: #fecd40;
+                            background-color: #79d3fe;
                             border-radius: 5px;
                         }
                     }
