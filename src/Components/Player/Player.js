@@ -6,7 +6,7 @@ export const Player = (props) => {
     return (
         <div className='player'>
             <img src={girl2} className={props.theme}/>
-            <p className={props.theme}>Player</p>
+            <p className={props.theme}>logan3124</p>
         </div>
     )
 }
