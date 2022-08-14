@@ -36,9 +36,8 @@ export const HomePage = () => {
     return (
         <div className='home'>
             {generateCards()}
-            <Route path="/Homepage/Form"  component={Form} />
-            <Route path="/Homepage/Account" component={Account} exact={true}/>
-           
+            <Route path="/Form"  component={Form} />
+            <Route path="/Account" component={Account} />
         </div>
     )
 }
