@@ -2,6 +2,7 @@ import './Form.scss';
 import google from '../../images/google.svg';
 import facebook from '../../images/facebook.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Form = () => {
     const [form, setForm] = useState('login')
@@ -53,7 +54,9 @@ export const Form = () => {
                         <input placeholder="Last Name"/>
                     </div>
                     <input placeholder='Username' required/>
-                    <input className="submit" type='submit' value='Submit' />
+                    <Link to="/Account">
+                        <input className="submit" type='submit' value='Submit' />
+                    </Link>
                 </form>}
             </div>
     )

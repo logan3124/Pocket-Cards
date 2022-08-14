@@ -1,0 +1,19 @@
+{
+    "userId": 0,
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "solitaireStats": {
+        "standardPlays": 0,
+        "standardWins": 0,
+        "timedPlays": 0,
+        "timedWins": 0 
+    },
+    "blackJackStats": {
+        "standardPlays": 0,
+        "standardWins": 0,
+        "mulitplierPlays": 0,
+        "multiplierWins": 0
+    }
+}

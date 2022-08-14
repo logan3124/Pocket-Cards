@@ -4,6 +4,7 @@ import { Card } from '../../Components/Card/Card';
 import { Form } from '../../Components/Form/Form';
 import { Account } from '../../Components/Account/Account';
 import { useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export const HomePage = () => {
 
@@ -35,7 +36,9 @@ export const HomePage = () => {
     return (
         <div className='home'>
             {generateCards()}
-            <Account />
+            <Route path="/Homepage/Form"  component={Form} />
+            <Route path="/Homepage/Account" component={Account} exact={true}/>
+           
         </div>
     )
 }
