@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card } from '../../Components/Card/Card';
 import { Form } from '../../Components/Form/Form';
 import { Account } from '../../Components/Account/Account';
+import { GameSelect } from '../../Components/GameSelect/GameSelect';
 import { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -38,6 +39,7 @@ export const HomePage = () => {
             {generateCards()}
             <Route path="/Home/Form"  component={Form} exact={true}/>
             <Route path="/Home/Account" component={Account} exact={true}/>
+            <Route path="/Home/GameSelect" component={GameSelect} exact={true}/>
         </div>
     )
 }
