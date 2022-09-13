@@ -54,7 +54,7 @@ export const Form = () => {
                         <input placeholder="Last Name"/>
                     </div>
                     <input placeholder='Username' required/>
-                    <Link to="/Account">
+                    <Link to="/Home/Account">
                         <input className="submit" type='submit' value='Submit' />
                     </Link>
                 </form>}

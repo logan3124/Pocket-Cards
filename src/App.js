@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <Route path="/" component={HomePage} />
+      <Route path="/Home" component={HomePage}/>
       <Route path="/BlackJack" component={BlackJackContainer} exact={true}/>
       <Route path="/Solitaire" component={Solitaire} exact={true} />
     </Router>
