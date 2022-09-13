@@ -15,6 +15,10 @@
         background-color: lightgray;
         margin: 0;
     }
+    img.small {
+        width: 8rem;
+        height: 8rem;
+    }
     img.red {
         border: 5px solid $primary-color;
     }
@@ -35,6 +39,10 @@
         margin: 0;
         color: white;
         position: relative;
+        bottom: 1.75rem;
+    }
+    p.small {
+        font-size: 20px;
         bottom: 1.75rem;
     }
     p.red {

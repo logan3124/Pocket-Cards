@@ -1,0 +1,12 @@
+header {
+    width: 100%;
+    border: 1px solid black;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: baseline;
+    h1 {
+        
+        position: relative;
+        bottom: 2rem;
+    }
+}
